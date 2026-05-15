@@ -228,6 +228,40 @@ a {
   z-index: 1;
 }
 
+.brand-copy {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 16px 0 2px;
+}
+
+.brand-copy::before,
+.brand-copy::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.brand-copy::before {
+  left: 0;
+  right: 0;
+  bottom: 3px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--blue-2), rgba(8, 124, 255, 0.45), transparent);
+  box-shadow: 0 0 12px rgba(34, 211, 255, 0.7);
+}
+
+.brand-copy::after {
+  right: 0;
+  top: 8px;
+  width: 10px;
+  height: 10px;
+  border-top: 1px solid var(--blue-2);
+  border-right: 1px solid var(--blue-2);
+  opacity: 0.85;
+}
+
 .brand-mark {
   width: 72px;
   height: 48px;
@@ -238,17 +272,18 @@ a {
 .brand strong {
   display: block;
   font-family: "Rajdhani", sans-serif;
-  font-size: 1.35rem;
-  letter-spacing: 0.32em;
+  font-size: clamp(1.2rem, 2.2vw, 1.85rem);
+  line-height: 1;
+  letter-spacing: 0.14em;
+  white-space: nowrap;
+  background: linear-gradient(180deg, #ffffff 0%, #b8c1cf 48%, #ffffff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
   color: #f6f9ff;
-}
-
-.brand small {
-  display: block;
-  margin-top: -2px;
-  color: var(--muted);
-  font-size: 0.72rem;
   text-transform: uppercase;
+  text-shadow:
+    0 0 18px rgba(8, 124, 255, 0.28),
+    0 0 28px rgba(34, 211, 255, 0.12);
 }
 
 .nav-links {
@@ -707,6 +742,16 @@ a {
   .brand-mark {
     width: 58px;
     height: 42px;
+  }
+
+  .brand-copy {
+    min-height: 38px;
+    padding-right: 8px;
+  }
+
+  .brand strong {
+    font-size: 1rem;
+    letter-spacing: 0.08em;
   }
 
   .hero-wordmark {
