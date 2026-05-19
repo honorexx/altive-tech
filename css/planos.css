@@ -2789,10 +2789,12 @@ body::before {
 }
 
 .footer-logo-img {
-  height: 42px;
+  height: 46px;
+  max-width: 190px;
   width: auto;
   display: block;
   margin-bottom: 16px;
+  object-fit: contain;
 }
 
 .footer-contact-link {
@@ -2807,8 +2809,10 @@ body::before {
 }
 
 .brand-logo-img {
-  height: 46px;
+  height: 40px;
+  max-width: 150px;
   width: auto;
   display: block;
+  object-fit: contain;
   filter: drop-shadow(0 0 8px rgba(0,160,255,0.5));
 }
