@@ -1822,14 +1822,48 @@ a {
 }
 
 .plans-page .btn-primary {
+  min-height: 52px;
+  padding: 0 32px;
+  border: 0;
+  border-radius: 0;
   background: linear-gradient(135deg, #5bdfff 0%, #149cff 46%, #006fd1 100%);
   color: #000305;
+  font-family: "Orbitron", "Rajdhani", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
   box-shadow: 0 0 34px rgba(20,156,255,0.42), inset 0 1px 0 rgba(255,255,255,0.36);
 }
 
 .plans-page .btn-secondary {
+  min-height: 52px;
+  padding: 0 28px;
+  border-radius: 0;
   border-color: rgba(88,215,255,0.4);
+  color: #58d7ff;
+  font-family: "Orbitron", "Rajdhani", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
   background: rgba(20,156,255,0.055);
+  clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+}
+
+.plans-page .btn-primary:hover,
+.plans-page .btn-secondary:hover {
+  transform: translateY(-3px);
+}
+
+.plans-page .btn-primary:hover {
+  box-shadow: 0 8px 40px rgba(20,156,255,0.55), inset 0 1px 0 rgba(255,255,255,0.36);
+}
+
+.plans-page .btn-secondary:hover {
+  border-color: rgba(88,215,255,0.72);
+  background: rgba(20,156,255,0.09);
 }
 
 .plans-page .plans-cta {
