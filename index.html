@@ -1524,6 +1524,52 @@ body::before {
   color: #9fb1c6;
 }
 
+.hero-code-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  max-width: min(560px, 92vw);
+  margin: -18px 0 34px;
+  padding: 13px 16px;
+  border: 1px solid rgba(88, 215, 255, 0.28);
+  border-left: 2px solid rgba(88, 215, 255, 0.7);
+  background: linear-gradient(90deg, rgba(0, 8, 18, 0.72), rgba(0, 20, 40, 0.34));
+  color: #b8c8dc;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0;
+  overflow: hidden;
+  box-shadow: 0 0 22px rgba(20, 156, 255, 0.08);
+}
+
+.code-prompt {
+  color: #58d7ff;
+  flex: 0 0 auto;
+}
+
+.code-typing {
+  display: inline-block;
+  width: 0;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 1px solid rgba(88, 215, 255, 0.8);
+  animation:
+    hero-code-type 5.8s steps(64, end) infinite,
+    hero-code-caret 0.8s steps(1) infinite;
+}
+
+@keyframes hero-code-type {
+  0%, 12% { width: 0; }
+  58%, 82% { width: 65ch; }
+  100% { width: 0; }
+}
+
+@keyframes hero-code-caret {
+  0%, 100% { border-color: rgba(88, 215, 255, 0.8); }
+  50% { border-color: transparent; }
+}
+
 .hud-panel {
   width: min(420px, 82vw);
   height: min(420px, 82vw);
@@ -1632,6 +1678,15 @@ body::before {
     flex-direction: column;
   }
 
+  .hero-code-line {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .code-typing {
+    white-space: nowrap;
+  }
+
   .btn-prime,
   .btn-ghost,
   .btn-wa {
@@ -1716,6 +1771,11 @@ body::before {
         <p class="hero-desc reveal">
           Desenvolvemos soluções digitais de alto impacto — sistemas, automações e inteligência artificial que transformam como sua empresa opera e cresce.
         </p>
+
+        <div class="hero-code-line reveal" aria-label="Código ALTIVE">
+          <span class="code-prompt">&gt;</span>
+          <span class="code-typing">deploy.altive({ site: "online", automacao: true, ia: "ready" })</span>
+        </div>
 
         <div class="hero-actions reveal">
           <a class="btn-prime" href="#servicos">
@@ -2185,4 +2245,3 @@ updateHeader();
 </script>
 </body>
 </html>
-

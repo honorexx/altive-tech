@@ -1814,12 +1814,8 @@ a {
 }
 
 .plans-page .plan-card::before {
-  opacity: 1;
-  background:
-    linear-gradient(115deg, transparent 0 32%, rgba(88,215,255,0.12) 38%, transparent 44% 100%),
-    linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
-  background-size: 230% 100%, 100% 100%;
-  animation: plan-card-sheen 5.2s linear infinite;
+  opacity: 0;
+  animation: none;
 }
 
 .plans-page .plan-card h3 {
@@ -1949,19 +1945,19 @@ a {
 }
 
 .plans-page .whatsapp-float {
-  background: rgba(26,173,80,0.15);
-  border-color: rgba(26,173,80,0.35);
-  box-shadow: 0 0 20px rgba(26,173,80,0.12);
+  background: rgba(0, 6, 12, 0.82);
+  border-color: rgba(88, 215, 255, 0.34);
+  box-shadow: 0 0 20px rgba(20,156,255,0.12);
 }
 
 .plans-page .whatsapp-float:hover {
-  box-shadow: 0 0 30px rgba(26,173,80,0.25);
+  box-shadow: 0 0 30px rgba(88,215,255,0.22);
 }
 
 .plans-page .instagram-float {
-  background: rgba(130,60,180,0.15);
-  border-color: rgba(180,60,120,0.35);
-  box-shadow: 0 0 20px rgba(180,60,120,0.1);
+  background: rgba(0, 6, 12, 0.82);
+  border-color: rgba(88, 215, 255, 0.34);
+  box-shadow: 0 0 20px rgba(20,156,255,0.12);
   animation-delay: 0.45s;
 }
 
@@ -2030,11 +2026,6 @@ a {
 @keyframes plans-ridge-sweep {
   0%, 100% { opacity: 0.45; transform: rotate(-15deg) translateX(-4vw); }
   50% { opacity: 0.95; transform: rotate(-15deg) translateX(4vw); }
-}
-
-@keyframes plan-card-sheen {
-  0% { background-position: 190% 0, 0 0; }
-  100% { background-position: -190% 0, 0 0; }
 }
 
 @keyframes blueprint-dot-pulse {
