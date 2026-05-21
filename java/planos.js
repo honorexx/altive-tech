@@ -37,28 +37,6 @@ window.addEventListener("scroll", updateHeader);
 updateHeader();
 
 (function(){
-  function setLang(lang) {
-    document.querySelectorAll('[data-pt]').forEach(function(el){
-      el.textContent = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-pt');
-    });
-    document.querySelectorAll('[data-html-pt]').forEach(function(el){
-      el.innerHTML = lang === 'en' ? el.getAttribute('data-html-en') : el.getAttribute('data-html-pt');
-    });
-    document.querySelectorAll('.lang-btn').forEach(function(b){
-      b.classList.toggle('active', b.dataset.lang === lang);
-    });
-    try { localStorage.setItem('altive_lang', lang); } catch(e){}
-  }
-  window.setLang = setLang;
-  document.addEventListener('DOMContentLoaded', function(){
-    try {
-      var saved = localStorage.getItem('altive_lang');
-      if (saved) setLang(saved);
-    } catch(e){}
-  });
-})();
-
-(function(){
   var bar = document.getElementById('scroll-progress');
   function up(){
     var st=window.scrollY||document.documentElement.scrollTop;

@@ -963,6 +963,8 @@ body::before {
   padding: 36px 28px 32px;
   transition: border-color 0.3s, transform 0.3s;
   clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+  display: flex;
+  flex-direction: column;
 }
 
 .plan-card:hover {
@@ -2506,6 +2508,7 @@ body::before {
   margin-bottom: 24px;
   color: var(--muted);
   font-size: 0.9rem;
+  flex: 1;
 }
 
 .plan-card li { position: relative; padding-left: 18px; }

@@ -4,23 +4,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="ALTIVE — Soluções digitais inteligentes. Desenvolvimento web, automação, IA e sistemas para empresas.">
-  <title>ALTIVE | Elevando negócios ao próximo nível</title>
-  <link rel="icon" type="image/png" href="assets/altive-logo-icon-black.png">
+  <title>ALTIVE | Desenvolvimento Web, Automação e IA para Empresas</title>
+  <link rel="canonical" href="https://altive.site/">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
+  <style>
+    .plan-features {
+      list-style: none;
+      padding: 0;
+      margin: 14px 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .plan-features li {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.6);
+      padding-left: 18px;
+      position: relative;
+    }
+    .plan-features li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #00d4ff;
+      font-size: 0.75rem;
+    }
+  </style>
 </head>
 <body>
 <div id="scroll-progress" aria-hidden="true"></div>
 <canvas id="particles-canvas" aria-hidden="true"></canvas>
 
-  <!-- BACKGROUND -->
   <div class="bg-grid" aria-hidden="true"></div>
   <div class="bg-mountain" aria-hidden="true"></div>
-  <!-- River glow from brand images -->
 
-  <!-- NAV -->
   <header class="topbar" id="topo">
     <a class="brand" href="#topo" aria-label="ALTIVE">
       <img src="assets/altive-logo-wordmark-black.png" alt="ALTIVE" class="brand-logo-img">
@@ -32,35 +53,29 @@
     </button>
 
     <nav class="nav-links" aria-label="Menu principal">
-      <a href="#sobre"><span data-pt="Sobre" data-en="About">Sobre</span></a>
-      <a href="#servicos"><span data-pt="Serviços" data-en="Services">Serviços</span></a>
-      <a href="solucoes.html"><span data-pt="Soluções" data-en="Solutions">Soluções</span></a>
-      <a href="#exemplos"><span data-pt="Exemplos" data-en="Examples">Exemplos</span></a>
-      <a href="planos.html"><span data-pt="Planos" data-en="Plans">Planos</span></a>
-      <a href="#processo"><span data-pt="Processo" data-en="Process">Processo</span></a>
-      <a href="#diferenciais"><span data-pt="Diferenciais" data-en="Differentials">Diferenciais</span></a>
-      <a href="https://wa.me/5541984801999?text=Ol%C3%A1%2C%20quero%20elevar%20meu%20neg%C3%B3cio%20ao%20pr%C3%B3ximo%20n%C3%ADvel." target="_blank" rel="noopener" class="nav-cta-btn"><span data-pt="Contato" data-en="Contact">Contato</span></a>
+      <a href="#sobre"><span>Sobre</span></a>
+      <a href="#servicos"><span>Serviços</span></a>
+      <a href="solucoes.html"><span>Soluções</span></a>
+      <a href="#exemplos"><span>Exemplos</span></a>
+      <a href="planos.html"><span>Planos</span></a>
+      <a href="#processo"><span>Processo</span></a>
+      <a href="#diferenciais"><span>Diferenciais</span></a>
+      <a href="https://wa.me/5541984801999?text=Ol%C3%A1%2C%20quero%20elevar%20meu%20neg%C3%B3cio%20ao%20pr%C3%B3ximo%20n%C3%ADvel." target="_blank" rel="noopener" class="nav-cta-btn"><span>Contato</span></a>
     </nav>
-    </div>
   </header>
 
   <main>
 
-    <!-- ═══ HERO ═══ -->
     <section class="hero">
       <div class="hero-left">
         <div class="hero-status reveal">
           <span class="status-dot"></span>
-          Sistema online · Pronto para o próximo nível
+          Sistema online · Disponível agora
         </div>
 
-        <div class="hero-logo reveal">
-          <img src="assets/altive-logo-wordmark-black.png" alt="ALTIVE" class="hero-logo-img">
-        </div>
+        <h1 class="hero-tagline reveal">Elevando negócios ao <strong>próximo nível</strong></h1>
 
-        <p class="hero-tagline reveal" data-html-pt="Elevando negócios ao <strong>próximo nível</strong>" data-html-en="Elevating businesses to the <strong>next level</strong>">Elevando negócios ao <strong>próximo nível</strong></p>
-
-        <p class="hero-desc reveal" data-html-pt="Desenvolvemos soluções digitais de alto impacto — sistemas, automações e inteligência artificial que transformam como sua empresa opera e cresce." data-html-en="We develop high-impact digital solutions — systems, automation and AI that transform how your company operates and grows.">Desenvolvemos soluções digitais de alto impacto — sistemas, automações e inteligência artificial que transformam como sua empresa opera e cresce.</p>
+        <p class="hero-desc reveal">Desenvolvemos soluções digitais de alto impacto — sistemas, automações e inteligência artificial que transformam como sua empresa opera e cresce.</p>
 
         <div class="hero-code-line reveal" aria-label="Código ALTIVE">
           <span class="code-prompt">&gt;</span>
@@ -79,7 +94,6 @@
         </div>
       </div>
 
-      <!-- HUD Panel -->
       <div class="hero-right reveal">
         <div class="hud-panel">
           <div class="hud-ring hud-ring-1"></div>
@@ -92,19 +106,19 @@
 
           <div class="hud-node hud-node-1">
             <div class="hud-node-val">100<sup>%</sup></div>
-            <div class="hud-node-label"><span data-pt="Entregas" data-en="Deliveries">Entregas</span></div>
+            <div class="hud-node-label"><span>Entregas</span></div>
           </div>
           <div class="hud-node hud-node-2">
             <div class="hud-node-val">24<sup>/7</sup></div>
-            <div class="hud-node-label"><span data-pt="Suporte" data-en="Support">Suporte</span></div>
+            <div class="hud-node-label"><span>Suporte</span></div>
           </div>
           <div class="hud-node hud-node-3">
             <div class="hud-node-val">5<sup>★</sup></div>
-            <div class="hud-node-label"><span data-pt="Avaliação" data-en="Rating">Avaliação</span></div>
+            <div class="hud-node-label"><span>Avaliação</span></div>
           </div>
           <div class="hud-node hud-node-4">
             <div class="hud-node-val">48<sup>h</sup></div>
-            <div class="hud-node-label"><span data-pt="1º Protótipo" data-en="1st Prototype">1º Protótipo</span></div>
+            <div class="hud-node-label"><span>1º Protótipo</span></div>
           </div>
         </div>
       </div>
@@ -112,36 +126,34 @@
 
     <div class="divider"></div>
 
-    <!-- ═══ SOBRE ═══ -->
     <section class="wrap" id="sobre">
       <div class="about-layout">
         <div class="about-body">
-          <p class="sec-label reveal"><span data-pt="// Sobre a ALTIVE" data-en="// About ALTIVE">// Sobre a ALTIVE</span></p>
-          <h2 class="sec-title reveal" data-html-pt="Estratégia digital.<br>Execução técnica." data-html-en="Digital strategy.<br>Technical execution.">Estratégia digital.<br>Execução técnica.</h2>
-          <p class="lead reveal" data-html-pt="A ALTIVE desenvolve soluções digitais para empresas que precisam de tecnologia confiável, interfaces profissionais e processos mais eficientes." data-html-en="ALTIVE develops digital solutions for companies that need reliable technology, professional interfaces and more efficient processes.">A ALTIVE desenvolve soluções digitais para empresas que precisam de tecnologia confiável, interfaces profissionais e processos mais eficientes.</p>
-          <p class="reveal" data-html-pt="Atuamos do planejamento à implementação — conectando desenvolvimento web, sistemas personalizados, automações e inteligência artificial para transformar operação em crescimento mensurável." data-html-en="We work from planning to implementation — connecting web development, custom systems, automation and AI to transform operations into measurable growth.">Atuamos do planejamento à implementação — conectando desenvolvimento web, sistemas personalizados, automações e inteligência artificial para transformar operação em crescimento mensurável.</p>
+          <p class="sec-label reveal"><span>// Sobre a ALTIVE</span></p>
+          <h2 class="sec-title reveal">Estratégia digital.<br>Execução técnica.</h2>
+          <p class="lead reveal">A ALTIVE desenvolve soluções digitais para empresas que precisam de tecnologia confiável, interfaces profissionais e processos mais eficientes.</p>
+          <p class="reveal">Atuamos do planejamento à implementação — conectando desenvolvimento web, sistemas personalizados, automações e inteligência artificial para transformar operação em crescimento mensurável.</p>
 
           <div class="stat-grid">
             <div class="stat-block reveal">
               <div class="stat-val">100<em>%</em></div>
-              <div class="stat-lbl"><span data-pt="Projetos entregues" data-en="Projects delivered">Projetos entregues</span></div>
+              <div class="stat-lbl"><span>Projetos entregues</span></div>
             </div>
             <div class="stat-block reveal">
               <div class="stat-val">48<em>h</em></div>
-              <div class="stat-lbl"><span data-pt="Primeiro protótipo" data-en="First prototype">Primeiro protótipo</span></div>
+              <div class="stat-lbl"><span>Primeiro protótipo</span></div>
             </div>
             <div class="stat-block reveal">
               <div class="stat-val">5<em>★</em></div>
-              <div class="stat-lbl"><span data-pt="Satisfação dos clientes" data-en="Client satisfaction">Satisfação dos clientes</span></div>
+              <div class="stat-lbl"><span>Satisfação dos clientes</span></div>
             </div>
             <div class="stat-block reveal">
               <div class="stat-val">24<em>/7</em></div>
-              <div class="stat-lbl"><span data-pt="Suporte e monitoramento" data-en="Support and monitoring">Suporte e monitoramento</span></div>
+              <div class="stat-lbl"><span>Suporte e monitoramento</span></div>
             </div>
           </div>
         </div>
 
-        <!-- Terminal card -->
         <div class="about-terminal reveal">
           <div class="terminal-header">
             <span class="terminal-dot t-red"></span>
@@ -162,7 +174,7 @@
             <div class="t-line"><span class="t-out success">✓ IA integrada ao fluxo</span></div>
             <div class="t-line">&nbsp;</div>
             <div class="t-line"><span class="t-prompt">▶</span><span class="t-cmd">status</span></div>
-            <div class="t-line"><span class="t-out success">✓ Negócio elevado ao próximo nível</span></div>
+            <div class="t-line"><span class="t-out success">✓ Resultado entregue com sucesso</span></div>
             <div class="t-line"><span class="t-prompt">▶</span><span class="t-cursor"></span></div>
           </div>
         </div>
@@ -171,72 +183,89 @@
 
     <div class="divider"></div>
 
-    <!-- ═══ SERVIÇOS ═══ -->
     <section class="services-bg" id="servicos">
       <div class="wrap pad-bottom-0">
         <p class="sec-label reveal">// Serviços</p>
-        <h2 class="sec-title reveal" data-html-pt="Soluções para empresas em evolução." data-html-en="Solutions for evolving businesses.">Soluções para empresas em evolução.</h2>
-        <p class="sec-sub reveal margin-bottom-52" data-html-pt="Cada entrega foi pensada para gerar resultado real — não apenas código, mas impacto mensurável no seu negócio." data-html-en="Every delivery generates real results — not just code, but measurable impact on your business.">Cada entrega foi pensada para gerar resultado real — não apenas código, mas impacto mensurável no seu negócio.</p>
+        <h2 class="sec-title reveal">Soluções para empresas em evolução.</h2>
+        <p class="sec-sub reveal margin-bottom-52">Cada entrega foi pensada para gerar resultado real — não apenas código, mas impacto mensurável no seu negócio.</p>
       </div>
 
       <div class="services-grid">
         <article class="svc-card reveal">
-          <div class="svc-num">SVC-01</div>
+          <div class="svc-head">
+            <div class="svc-num">SVC-01</div>
+            <span class="svc-badge"><i></i>ATIVO</span>
+          </div>
           <div class="svc-icon">
             <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="14" rx="1"/><path d="M8 21h8M12 17v4"/><path d="M7 7h.5M9.5 7h5M7 11h10"/></svg>
           </div>
-          <h3 class="svc-title"><span data-pt="Desenvolvimento Web" data-en="Web Development">Desenvolvimento Web</span></h3>
-          <p class="svc-desc" data-html-pt="Sites, landing pages e plataformas de alto desempenho — responsivos, rápidos e preparados para converter visitantes em clientes." data-html-en="High-performance websites, landing pages and platforms — responsive, fast and ready to convert visitors into customers.">Sites, landing pages e plataformas de alto desempenho — responsivos, rápidos e preparados para converter visitantes em clientes.</p>
+          <h3 class="svc-title"><span>Desenvolvimento Web</span></h3>
+          <p class="svc-desc">Sites, landing pages e plataformas de alto desempenho — responsivos, rápidos e preparados para converter visitantes em clientes.</p>
           <a class="svc-link" href="solucoes.html#web">Saiba mais</a>
         </article>
 
         <article class="svc-card reveal">
-          <div class="svc-num">SVC-02</div>
+          <div class="svc-head">
+            <div class="svc-num">SVC-02</div>
+            <span class="svc-badge"><i></i>ATIVO</span>
+          </div>
           <div class="svc-icon">
             <svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg>
           </div>
-          <h3 class="svc-title"><span data-pt="Automação de Processos" data-en="Process Automation">Automação de Processos</span></h3>
-          <p class="svc-desc" data-html-pt="Fluxos automatizados que eliminam tarefas manuais, integram ferramentas e multiplicam a produtividade sem aumentar a equipe." data-html-en="Automated workflows that eliminate manual tasks, integrate tools and scale productivity without growing the team.">Fluxos automatizados que eliminam tarefas manuais, integram ferramentas e multiplicam a produtividade sem aumentar a equipe.</p>
+          <h3 class="svc-title"><span>Automação de Processos</span></h3>
+          <p class="svc-desc">Fluxos automatizados que eliminam tarefas manuais, integram ferramentas e multiplicam a produtividade sem aumentar a equipe.</p>
           <a class="svc-link" href="solucoes.html#automacao">Saiba mais</a>
         </article>
 
         <article class="svc-card reveal">
-          <div class="svc-num">SVC-03</div>
+          <div class="svc-head">
+            <div class="svc-num">SVC-03</div>
+            <span class="svc-badge"><i></i>ATIVO</span>
+          </div>
           <div class="svc-icon">
             <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="1"/><path d="M8 21h8M12 17v4M7 7h.01M10 7h4M7 11h10"/></svg>
           </div>
-          <h3 class="svc-title"><span data-pt="Sistemas Personalizados" data-en="Custom Systems">Sistemas Personalizados</span></h3>
-          <p class="svc-desc" data-html-pt="Soluções sob medida para operações complexas que precisam de controle total, escalabilidade e integração profunda com o negócio." data-html-en="Tailored solutions for complex operations that need full control, scalability and deep business integration.">Soluções sob medida para operações complexas que precisam de controle total, escalabilidade e integração profunda com o negócio.</p>
+          <h3 class="svc-title"><span>Sistemas Personalizados</span></h3>
+          <p class="svc-desc">Soluções sob medida para operações complexas que precisam de controle total, escalabilidade e integração profunda com o negócio.</p>
           <a class="svc-link" href="solucoes.html#sistemas">Saiba mais</a>
         </article>
 
         <article class="svc-card reveal">
-          <div class="svc-num">SVC-04</div>
+          <div class="svc-head">
+            <div class="svc-num">SVC-04</div>
+            <span class="svc-badge"><i></i>ATIVO</span>
+          </div>
           <div class="svc-icon">
             <svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg>
           </div>
-          <h3 class="svc-title"><span data-pt="Inteligência Artificial" data-en="Artificial Intelligence">Inteligência Artificial</span></h3>
-          <p class="svc-desc" data-html-pt="Aplicações com IA para atendimento automático, análise preditiva e suporte à decisão com dados reais da sua operação." data-html-en="AI applications for automated service, predictive analysis and decision support with real data from your operation.">Aplicações com IA para atendimento automático, análise preditiva e suporte à decisão com dados reais da sua operação.</p>
+          <h3 class="svc-title"><span>Inteligência Artificial</span></h3>
+          <p class="svc-desc">Aplicações com IA para atendimento automático, análise preditiva e suporte à decisão com dados reais da sua operação.</p>
           <a class="svc-link" href="solucoes.html#ia">Saiba mais</a>
         </article>
 
         <article class="svc-card reveal">
-          <div class="svc-num">SVC-05</div>
+          <div class="svc-head">
+            <div class="svc-num">SVC-05</div>
+            <span class="svc-badge"><i></i>ATIVO</span>
+          </div>
           <div class="svc-icon">
             <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9M7 13l2 2 4-5"/></svg>
           </div>
-          <h3 class="svc-title"><span data-pt="Dashboards & Dados" data-en="Dashboards & Data">Dashboards & Dados</span></h3>
-          <p class="svc-desc" data-html-pt="Painéis interativos que transformam dados brutos em decisões rápidas — acompanhe indicadores, performance e crescimento em tempo real." data-html-en="Interactive dashboards that turn raw data into quick decisions — track KPIs, performance and growth in real time.">Painéis interativos que transformam dados brutos em decisões rápidas — acompanhe indicadores, performance e crescimento em tempo real.</p>
+          <h3 class="svc-title"><span>Dashboards & Dados</span></h3>
+          <p class="svc-desc">Painéis interativos que transformam dados brutos em decisões rápidas — acompanhe indicadores, performance e crescimento em tempo real.</p>
           <a class="svc-link" href="solucoes.html#dashboards">Saiba mais</a>
         </article>
 
         <article class="svc-card reveal">
-          <div class="svc-num">SVC-06</div>
+          <div class="svc-head">
+            <div class="svc-num">SVC-06</div>
+            <span class="svc-badge"><i></i>ATIVO</span>
+          </div>
           <div class="svc-icon">
             <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h8M8 13h5"/></svg>
           </div>
-          <h3 class="svc-title"><span data-pt="Consultoria Digital" data-en="Digital Consulting">Consultoria Digital</span></h3>
-          <p class="svc-desc" data-html-pt="Diagnóstico completo, arquitetura de soluções e roadmap estratégico para empresas que querem crescer com segurança e direção." data-html-en="Full diagnosis, solution architecture and strategic roadmap for companies that want to grow safely and with direction.">Diagnóstico completo, arquitetura de soluções e roadmap estratégico para empresas que querem crescer com segurança e direção.</p>
+          <h3 class="svc-title"><span>Consultoria Digital</span></h3>
+          <p class="svc-desc">Diagnóstico completo, arquitetura de soluções e roadmap estratégico para empresas que querem crescer com segurança e direção.</p>
           <a class="svc-link" href="solucoes.html#consultoria">Saiba mais</a>
         </article>
       </div>
@@ -244,11 +273,10 @@
 
     <div class="divider margin-top-0"></div>
 
-    <!-- ═══ EXEMPLOS EM ACAO ═══ -->
     <section class="wrap live-examples" id="exemplos">
-      <p class="sec-label reveal"><span data-pt="// Exemplos em ação" data-en="// Live examples">// Exemplos em ação</span></p>
-      <h2 class="sec-title reveal" data-html-pt="Veja o que a ALTIVE<br>coloca para funcionar." data-html-en="See what ALTIVE<br>puts to work.">Veja o que a ALTIVE<br>coloca para funcionar.</h2>
-      <p class="sec-sub reveal margin-bottom-52" data-html-pt="Cenários reais de IA, automação e sistemas sob medida, com uma camada visual para mostrar o que acontece por trás da experiência do cliente." data-html-en="Real scenarios for AI, automation and custom systems, with a visual layer showing what happens behind the customer experience.">Cenários reais de IA, automação e sistemas sob medida, com uma camada visual para mostrar o que acontece por trás da experiência do cliente.</p>
+      <p class="sec-label reveal"><span>// Exemplos em ação</span></p>
+      <h2 class="sec-title reveal">Veja o que a ALTIVE<br>coloca para funcionar.</h2>
+      <p class="sec-sub reveal margin-bottom-52">Cenários reais de IA, automação e sistemas sob medida, com uma camada visual para mostrar o que acontece por trás da experiência do cliente.</p>
 
       <div class="example-showcase">
         <article class="example-card example-whatsapp reveal">
@@ -348,101 +376,98 @@
 
     <div class="divider"></div>
 
-    <!-- ═══ PROCESSO ═══ -->
     <section class="wrap" id="processo">
-      <p class="sec-label reveal"><span data-pt="// Como trabalhamos" data-en="// How we work">// Como trabalhamos</span></p>
-      <h2 class="sec-title reveal" data-html-pt="Do problema à solução,<br>sem surpresas." data-html-en="From problem to solution,<br>no surprises.">Do problema à solução,<br>sem surpresas.</h2>
-      <p class="sec-sub reveal margin-bottom-60" data-html-pt="Metodologia ágil, comunicação constante e entregas incrementais — você acompanha cada etapa em tempo real." data-html-en="Agile methodology, constant communication and incremental deliveries — you track every step in real time.">Metodologia ágil, comunicação constante e entregas incrementais — você acompanha cada etapa em tempo real.</p>
+      <p class="sec-label reveal"><span>// Como trabalhamos</span></p>
+      <h2 class="sec-title reveal">Do problema à solução,<br>sem surpresas.</h2>
+      <p class="sec-sub reveal margin-bottom-60">Metodologia ágil, comunicação constante e entregas incrementais — você acompanha cada etapa em tempo real.</p>
 
       <div class="process-track">
         <article class="proc-step reveal">
           <div class="proc-num-wrap"><span class="proc-num">01</span></div>
-          <h3 class="proc-title"><span data-pt="Diagnóstico" data-en="Diagnosis">Diagnóstico</span></h3>
-          <p class="proc-desc" data-html-pt="Mapeamos cenário, objetivos, gargalos e oportunidades antes de qualquer decisão técnica." data-html-en="We map the scenario, goals, bottlenecks and opportunities before any technical decision.">Mapeamos cenário, objetivos, gargalos e oportunidades antes de qualquer decisão técnica.</p>
+          <h3 class="proc-title"><span>Diagnóstico</span></h3>
+          <p class="proc-desc">Mapeamos cenário, objetivos, gargalos e oportunidades antes de qualquer decisão técnica.</p>
         </article>
         <article class="proc-step reveal">
           <div class="proc-num-wrap"><span class="proc-num">02</span></div>
-          <h3 class="proc-title"><span data-pt="Planejamento" data-en="Planning">Planejamento</span></h3>
-          <p class="proc-desc" data-html-pt="Definimos arquitetura, tecnologias e cronograma realista com marcos de entrega claros." data-html-en="We define architecture, technologies and a realistic timeline with clear delivery milestones.">Definimos arquitetura, tecnologias e cronograma realista com marcos de entrega claros.</p>
+          <h3 class="proc-title"><span>Planejamento</span></h3>
+          <p class="proc-desc">Definimos arquitetura, tecnologias e cronograma realista com marcos de entrega claros.</p>
         </article>
         <article class="proc-step reveal">
           <div class="proc-num-wrap"><span class="proc-num">03</span></div>
-          <h3 class="proc-title"><span data-pt="Desenvolvimento" data-en="Development">Desenvolvimento</span></h3>
-          <p class="proc-desc" data-html-pt="Ciclos curtos com feedback contínuo — performance, usabilidade e qualidade em cada iteração." data-html-en="Short cycles with continuous feedback — performance, usability and quality in every iteration.">Ciclos curtos com feedback contínuo — performance, usabilidade e qualidade em cada iteração.</p>
+          <h3 class="proc-title"><span>Desenvolvimento</span></h3>
+          <p class="proc-desc">Ciclos curtos com feedback contínuo — performance, usabilidade e qualidade em cada iteração.</p>
         </article>
         <article class="proc-step reveal">
           <div class="proc-num-wrap"><span class="proc-num">04</span></div>
           <h3 class="proc-title">Entrega & Escala</h3>
-          <p class="proc-desc" data-html-pt="Deploy monitorado, documentação e suporte ativo para garantir evolução contínua do produto." data-html-en="Monitored deployment, documentation and active support to ensure continuous product evolution.">Deploy monitorado, documentação e suporte ativo para garantir evolução contínua do produto.</p>
+          <p class="proc-desc">Deploy monitorado, documentação e suporte ativo para garantir evolução contínua do produto.</p>
         </article>
       </div>
     </section>
 
     <div class="divider"></div>
 
-    <!-- ═══ DIFERENCIAIS ═══ -->
     <section class="wrap" id="diferenciais">
       <div class="why-layout">
         <div>
-          <p class="sec-label reveal"><span data-pt="// Por que a ALTIVE" data-en="// Why ALTIVE">// Por que a ALTIVE</span></p>
-          <h2 class="sec-title reveal" data-html-pt="Construção sólida.<br>Crescimento real." data-html-en="Solid build.<br>Real growth.">Construção sólida.<br>Crescimento real.</h2>
-          <p class="sec-sub reveal margin-bottom-40" data-html-pt="Não entregamos apenas software — entregamos resultado, confiança e uma parceria que evolui com o seu negócio." data-html-en="We don't just deliver software — we deliver results, trust and a partnership that evolves with your business.">Não entregamos apenas software — entregamos resultado, confiança e uma parceria que evolui com o seu negócio.</p>
+          <p class="sec-label reveal"><span>// Por que a ALTIVE</span></p>
+          <h2 class="sec-title reveal">Construção sólida.<br>Crescimento real.</h2>
+          <p class="sec-sub reveal margin-bottom-40">Não entregamos apenas software — entregamos resultado, confiança e uma parceria que evolui com o seu negócio.</p>
 
           <div class="why-list">
             <div class="why-item reveal">
               <span class="why-idx">01</span>
               <div class="why-content">
-                <h4><span data-pt="Visual premium" data-en="Premium design">Visual premium</span></h4>
-                <p data-html-pt="Interfaces modernas, responsivas e alinhadas ao posicionamento da sua marca — design que gera credibilidade e converte." data-html-en="Modern, responsive interfaces aligned with your brand — design that builds credibility and converts.">Interfaces modernas, responsivas e alinhadas ao posicionamento da sua marca — design que gera credibilidade e converte.</p>
+                <h4><span>Visual premium</span></h4>
+                <p>Interfaces modernas, responsivas e alinhadas ao posicionamento da sua marca — design que gera credibilidade e converte.</p>
               </div>
             </div>
             <div class="why-item reveal">
               <span class="why-idx">02</span>
               <div class="why-content">
-                <h4><span data-pt="Foco em eficiência" data-en="Focus on efficiency">Foco em eficiência</span></h4>
-                <p data-html-pt="Automação e sistemas que economizam tempo, padronizam processos e reduzem erros — mais resultado, menos esforço." data-html-en="Automation and systems that save time, standardize processes and reduce errors — more results, less effort.">Automação e sistemas que economizam tempo, padronizam processos e reduzem erros — mais resultado, menos esforço.</p>
+                <h4><span>Foco em eficiência</span></h4>
+                <p>Automação e sistemas que economizam tempo, padronizam processos e reduzem erros — mais resultado, menos esforço.</p>
               </div>
             </div>
             <div class="why-item reveal">
               <span class="why-idx">03</span>
               <div class="why-content">
-                <h4><span data-pt="Tecnologia aplicada" data-en="Applied technology">Tecnologia aplicada</span></h4>
-                <p data-html-pt="Desenvolvimento orientado a resultado — sem modismo, com as tecnologias certas para cada desafio real." data-html-en="Result-driven development — no fads, with the right technologies for each real challenge.">Desenvolvimento orientado a resultado — sem modismo, com as tecnologias certas para cada desafio real.</p>
+                <h4><span>Tecnologia aplicada</span></h4>
+                <p>Desenvolvimento orientado a resultado — sem modismo, com as tecnologias certas para cada desafio real.</p>
               </div>
             </div>
             <div class="why-item reveal">
               <span class="why-idx">04</span>
               <div class="why-content">
-                <h4><span data-pt="Parceria estratégica" data-en="Strategic partnership">Parceria estratégica</span></h4>
-                <p data-html-pt="Somos parceiros que entendem seu negócio e pensam junto na melhor solução — não apenas executores de demanda." data-html-en="We are partners who understand your business and think together on the best solution — not just order takers.">Somos parceiros que entendem seu negócio e pensam junto na melhor solução — não apenas executores de demanda.</p>
+                <h4><span>Parceria estratégica</span></h4>
+                <p>Somos parceiros que entendem seu negócio e pensam junto na melhor solução — não apenas executores de demanda.</p>
               </div>
             </div>
             <div class="why-item reveal">
               <span class="why-idx">05</span>
               <div class="why-content">
-                <h4><span data-pt="Suporte contínuo" data-en="Continuous support">Suporte contínuo</span></h4>
-                <p data-html-pt="Monitoramos, corrigimos e evoluímos seu produto continuamente — nosso trabalho não termina na entrega." data-html-en="We monitor, fix and evolve your product continuously — our work doesn't end at delivery.">Monitoramos, corrigimos e evoluímos seu produto continuamente — nosso trabalho não termina na entrega.</p>
+                <h4><span>Suporte contínuo</span></h4>
+                <p>Monitoramos, corrigimos e evoluímos seu produto continuamente — nosso trabalho não termina na entrega.</p>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Spec sheet -->
         <div class="spec-sheet reveal">
           <div class="spec-header">
-            <span class="spec-header-label"><span data-pt="ALTIVE · Ficha técnica" data-en="ALTIVE · Tech sheet">ALTIVE · Ficha técnica</span></span>
-            <span class="spec-badge"><span data-pt="● ATIVO" data-en="● ACTIVE">● ATIVO</span></span>
+            <span class="spec-header-label"><span>ALTIVE · Ficha técnica</span></span>
+            <span class="spec-badge"><span>● ATIVO</span></span>
           </div>
           <div class="spec-row">
-            <span class="spec-key"><span data-pt="entregas_no_prazo" data-en="on_time_delivery">entregas_no_prazo</span></span>
+            <span class="spec-key"><span>entregas_no_prazo</span></span>
             <span class="spec-val green">100%</span>
           </div>
           <div class="spec-row">
-            <span class="spec-key"><span data-pt="primeiro_protótipo" data-en="first_prototype">primeiro_protótipo</span></span>
+            <span class="spec-key"><span>primeiro_protótipo</span></span>
             <span class="spec-val cyan">48h</span>
           </div>
           <div class="spec-row">
-            <span class="spec-key"><span data-pt="avaliação_clientes" data-en="client_rating">avaliação_clientes</span></span>
+            <span class="spec-key"><span>avaliação_clientes</span></span>
             <span class="spec-val green">5.0 ★</span>
           </div>
           <div class="spec-row">
@@ -450,24 +475,24 @@
             <span class="spec-val cyan">24 / 7</span>
           </div>
           <div class="spec-row">
-            <span class="spec-key"><span data-pt="metodologia" data-en="methodology">metodologia</span></span>
+            <span class="spec-key"><span>metodologia</span></span>
             <span class="spec-val">Agile · Scrum</span>
           </div>
           <div class="spec-row">
-            <span class="spec-key"><span data-pt="lgpd_compliance" data-en="gdpr_compliance">lgpd_compliance</span></span>
-            <span class="spec-val green"><span data-pt="✓ Conforme" data-en="✓ Compliant">✓ Conforme</span></span>
+            <span class="spec-key"><span>lgpd_compliance</span></span>
+            <span class="spec-val green"><span>✓ Conforme</span></span>
           </div>
           <div class="spec-row">
-            <span class="spec-key"><span data-pt="infraestrutura" data-en="infrastructure">infraestrutura</span></span>
+            <span class="spec-key"><span>infraestrutura</span></span>
             <span class="spec-val">AWS · Docker · CI/CD</span>
           </div>
           <div class="spec-row">
-            <span class="spec-key"><span data-pt="ia_integrada" data-en="integrated_ai">ia_integrada</span></span>
-            <span class="spec-val cyan"><span data-pt="Disponível" data-en="Available">Disponível</span></span>
+            <span class="spec-key"><span>ia_integrada</span></span>
+            <span class="spec-val cyan"><span>Disponível</span></span>
           </div>
           <div class="spec-row">
-            <span class="spec-key"><span data-pt="escalabilidade" data-en="scalability">escalabilidade</span></span>
-            <span class="spec-val green"><span data-pt="✓ Garantida" data-en="✓ Guaranteed">✓ Garantida</span></span>
+            <span class="spec-key"><span>escalabilidade</span></span>
+            <span class="spec-val green"><span>✓ Garantida</span></span>
           </div>
         </div>
       </div>
@@ -475,17 +500,25 @@
 
     <div class="divider"></div>
 
-    <!-- ═══ PLANOS ═══ -->
     <section class="wrap" id="planos">
-      <p class="sec-label reveal"><span data-pt="// Planos" data-en="// Plans">// Planos</span></p>
+      <p class="sec-label reveal"><span>// Planos</span></p>
       <h2 class="sec-title reveal">Escolha sua evolução digital.</h2>
       <p class="sec-sub reveal margin-bottom-52">Do primeiro site ao sistema sob medida com IA — soluções para cada estágio do seu negócio.</p>
 
       <div class="plans-grid">
         <article class="plan-card reveal">
+          <div class="plan-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M5 17.5 10.5 12 5 6.5M12 18h7"/></svg>
+          </div>
           <div class="plan-idx">PLN-01</div>
           <h3 class="plan-name">START</h3>
           <p class="plan-desc">Base profissional para pequenos negócios com presença digital, WhatsApp Business e estrutura inicial confiável.</p>
+          <ul class="plan-features">
+            <li>Landing page</li>
+            <li>WhatsApp Business</li>
+            <li>Configuração básica</li>
+            <li>Suporte inicial</li>
+          </ul>
           <a class="plan-link" href="planos.html">
             Ver plano
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -494,9 +527,19 @@
 
         <article class="plan-card featured reveal">
           <span class="plan-badge-featured">Mais escolhido</span>
+          <div class="plan-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 3 4 7v6c0 4.4 3.4 7.5 8 8 4.6-.5 8-3.6 8-8V7l-8-4Z"/><path d="m9 12 2 2 4-5"/></svg>
+          </div>
           <div class="plan-idx">PLN-02</div>
           <h3 class="plan-name">BUSINESS</h3>
           <p class="plan-desc">Site profissional, IA no atendimento, automações e integrações — operação mais inteligente para empresas em crescimento.</p>
+          <ul class="plan-features">
+            <li>Site profissional</li>
+            <li>IA para WhatsApp</li>
+            <li>Automação de processos</li>
+            <li>Integrações</li>
+            <li>Suporte prioritário</li>
+          </ul>
           <a class="plan-link" href="planos.html">
             Ver plano
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -504,9 +547,19 @@
         </article>
 
         <article class="plan-card reveal">
+          <div class="plan-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
           <div class="plan-idx">PLN-03</div>
           <h3 class="plan-name">ENTERPRISE</h3>
           <p class="plan-desc">Sistema personalizado, IA avançada, APIs, escala e suporte dedicado — solução completa sob medida.</p>
+          <ul class="plan-features">
+            <li>Sistema personalizado</li>
+            <li>IA avançada</li>
+            <li>APIs & integrações</li>
+            <li>Escalabilidade</li>
+            <li>Suporte contínuo</li>
+          </ul>
           <a class="plan-link" href="planos.html">
             Ver plano
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -515,15 +568,12 @@
       </div>
 
       <div class="reveal text-center margin-top-40">
-        <a class="btn-prime" href="planos.html"><span data-pt="Ver todos os planos e valores" data-en="View all plans and pricing">Ver todos os planos e valores</span></a>
+        <a class="btn-prime" href="planos.html"><span>Ver todos os planos e valores</span></a>
       </div>
     </section>
 
-  </main>
-
     <div class="divider"></div>
 
-    <!-- ═══ ROI ═══ -->
     <section class="wrap roi-section" id="roi">
       <p class="sec-label reveal">// Calculadora de ROI</p>
       <h2 class="sec-title reveal">Quanto você economiza<br>com automação?</h2>
@@ -603,7 +653,6 @@
       </div>
     </section>
 
-  <!-- ═══ CTA FINAL ═══ -->
   <div class="cta-section">
     <div class="cta-box reveal">
       <div class="cta-corner tl"></div>
@@ -611,8 +660,8 @@
       <div class="cta-corner bl"></div>
       <div class="cta-corner br"></div>
 
-      <p class="sec-label justify-center margin-bottom-24"><span data-pt="// Próximo passo" data-en="// Next step">// Próximo passo</span></p>
-      <h2>Pronto para elevar seu negócio<br>ao próximo nível?</h2>
+      <p class="sec-label justify-center margin-bottom-24"><span>// Próximo passo</span></p>
+      <h2>Pronto para transformar<br>sua operação digital?</h2>
       <p>Entre em contato agora. Resposta rápida, sem burocracia — vamos entender seu desafio e montar a solução ideal.</p>
 
       <div class="cta-buttons">
@@ -620,29 +669,29 @@
           <svg viewBox="0 0 24 24"><path d="M20.5 3.5A12 12 0 0 0 1.07 16.93L0 24l7.25-1.9A12 12 0 1 0 20.5 3.5zm-8.5 18a9.94 9.94 0 0 1-5.07-1.39l-.36-.22-3.74.98 1-3.65-.23-.37A10 10 0 1 1 12 21.5zm5.52-7.44c-.3-.15-1.77-.87-2.04-.97s-.47-.15-.67.15-.77.97-.94 1.17-.35.22-.65.07a8.15 8.15 0 0 1-2.4-1.48 9.06 9.06 0 0 1-1.66-2.06c-.17-.3 0-.46.13-.6s.3-.35.45-.52a2 2 0 0 0 .3-.5.55.55 0 0 0-.02-.52c-.07-.15-.67-1.61-.92-2.2s-.48-.5-.67-.51h-.57a1.1 1.1 0 0 0-.8.37 3.36 3.36 0 0 0-1.05 2.5 5.84 5.84 0 0 0 1.22 3.1 13.38 13.38 0 0 0 5.13 4.52c.72.31 1.28.5 1.72.64a4.14 4.14 0 0 0 1.9.12 3.09 3.09 0 0 0 2.02-1.42 2.5 2.5 0 0 0 .17-1.42c-.07-.13-.27-.2-.57-.35z"/></svg>
           Falar no WhatsApp
         </a>
-        <a class="btn-ghost" href="planos.html"><span data-pt="Ver planos e valores" data-en="View plans and pricing">Ver planos e valores</span></a>
+        <a class="btn-ghost" href="planos.html"><span>Ver planos e valores</span></a>
       </div>
 
       <div class="cta-phone">(41) 98480-1999</div>
     </div>
   </div>
 
-  <!-- FLOAT BUTTONS -->
+  </main>
+
   <div class="social-float" aria-label="Canais ALTIVE">
     <a class="float-btn whatsapp-float" href="https://wa.me/5541984801999?text=Ol%C3%A1%2C%20quero%20elevar%20meu%20neg%C3%B3cio." target="_blank" rel="noopener" aria-label="WhatsApp ALTIVE" data-label="WhatsApp">
-      <svg viewBox="0 0 24 24"><path d="M20.5 3.5A12 12 0 0 0 1.07 16.93L0 24l7.25-1.9A12 12 0 1 0 20.5 3.5zm-8.5 18a9.94 9.94 0 0 1-5.07-1.39l-.36-.22-3.74.98 1-3.65-.23-.37A10 10 0 1 1 12 21.5zm5.52-7.44c-.3-.15-1.77-.87-2.04-.97s-.47-.15-.67.15-.77.97-.94 1.17-.35.22-.65.07a8.15 8.15 0 0 1-2.4-1.48 9.06 9.06 0 0 1-1.66-2.06c-.17-.3 0-.46.13-.6s.3-.35.45-.52a2 2 0 0 0 .3-.5.55.55 0 0 0-.02-.52c-.07-.15-.67-1.61-.92-2.2s-.48-.5-.67-.51h-.57a1.1 1.1 0 0 0-.8.37 3.36 3.36 0 0 0-1.05 2.5 5.84 5.84 0 0 0 1.22 3.1 13.38 13.38 0 0 0 5.13 4.52c.72.31 1.28.5 1.72.64a4.14 4.14 0 0 0 1.9.12 3.09 3.09 0 0 0 2.02-1.42 2.5 2.5 0 0 0 .17-1.42c-.07-.13-.27-.2-.57-.35z"/></svg>
+      <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
     <a class="float-btn instagram-float" href="https://www.instagram.com/altivetech/" target="_blank" rel="noopener" aria-label="Instagram ALTIVE" data-label="Instagram">
       <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="white" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="white" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5" fill="white"/></svg>
     </a>
   </div>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-brand">
         <img src="assets/altive-logo-wordmark-black.png" alt="ALTIVE" class="footer-logo-img">
-        <p data-html-pt="Soluções digitais inteligentes para empresas que querem crescer com tecnologia confiável e execução de alto nível." data-html-en="Intelligent digital solutions for companies that want to grow with reliable technology and high-level execution.">Soluções digitais inteligentes para empresas que querem crescer com tecnologia confiável e execução de alto nível.</p>
+        <p>Soluções digitais inteligentes para empresas que querem crescer com tecnologia confiável e execução de alto nível.</p>
         <div class="footer-socials">
           <a class="footer-social-btn" href="https://www.instagram.com/altivetech/" target="_blank" rel="noopener" aria-label="Instagram">
             <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
@@ -654,14 +703,14 @@
       </div>
 
       <div class="footer-col">
-        <h4><span data-pt="Navegação" data-en="Navigation">Navegação</span></h4>
+        <h4><span>Navegação</span></h4>
         <ul>
           <li><a href="#sobre">Sobre</a></li>
           <li><a href="#servicos">Serviços</a></li>
           <li><a href="solucoes.html">Soluções</a></li>
           <li><a href="#exemplos">Exemplos</a></li>
           <li><a href="planos.html">Planos</a></li>
-          <li><a href="#processo"><span data-pt="Como trabalhamos" data-en="How we work">Como trabalhamos</span></a></li>
+          <li><a href="#processo"><span>Como trabalhamos</span></a></li>
           <li><a href="#diferenciais">Diferenciais</a></li>
         </ul>
       </div>
@@ -673,15 +722,15 @@
             <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.9a16 16 0 0 0 6.06 6.06l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.94 16.92z"/></svg>
             (41) 98480-1999
           </div>
-          <a href="https://wa.me/5541984801999" target="_blank" rel="noopener" class="footer-contact-link"><span data-pt="Falar no WhatsApp →" data-en="Talk on WhatsApp →">Falar no WhatsApp →</span></a>
+          <a href="https://wa.me/5541984801999" target="_blank" rel="noopener" class="footer-contact-link"><span>Falar no WhatsApp →</span></a>
           <a href="https://www.instagram.com/altivetech/" target="_blank" rel="noopener" class="footer-contact-link">@altivetech →</a>
         </div>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <span><span data-pt="© 2025 ALTIVE · Todos os direitos reservados" data-en="© 2025 ALTIVE · All rights reserved">© 2025 ALTIVE · Todos os direitos reservados</span></span>
-      <a href="#topo"><span data-pt="↑ Voltar ao topo" data-en="↑ Back to top">↑ Voltar ao topo</span></a>
+      <span>© 2026 ALTIVE · Todos os direitos reservados</span>
+      <a href="#topo"><span>↑ Voltar ao topo</span></a>
     </div>
   </footer>
 

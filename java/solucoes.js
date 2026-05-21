@@ -56,6 +56,25 @@ window.addEventListener("scroll", () => {
 updateHeader();
 updateProgress();
 
+(function initActivePills() {
+  const sections = document.querySelectorAll('.solution-section[id]');
+  const pills = document.querySelectorAll('.solution-pills a');
+  if (!sections.length || !pills.length) return;
+
+  const pillObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var id = entry.target.id;
+        pills.forEach(function(pill) {
+          pill.classList.toggle('active', pill.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { rootMargin: '-40% 0px -40% 0px', threshold: 0 });
+
+  sections.forEach(function(section) { pillObserver.observe(section); });
+})();
+
 (function initParticles() {
   const canvas = document.getElementById("particles-canvas");
   if (!canvas) return;

@@ -36,28 +36,6 @@ revealItems.forEach((item) => observer.observe(item));
 window.addEventListener("scroll", updateHeader);
 updateHeader();
 
-(function(){
-  function setLang(lang) {
-    document.querySelectorAll('[data-pt]').forEach(function(el){
-      el.textContent = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-pt');
-    });
-    document.querySelectorAll('[data-html-pt]').forEach(function(el){
-      el.innerHTML = lang === 'en' ? el.getAttribute('data-html-en') : el.getAttribute('data-html-pt');
-    });
-    document.querySelectorAll('.lang-btn').forEach(function(b){
-      b.classList.toggle('active', b.dataset.lang === lang);
-    });
-    try { localStorage.setItem('altive_lang', lang); } catch(e){}
-  }
-  window.setLang = setLang;
-  document.addEventListener('DOMContentLoaded', function(){
-    try {
-      var saved = localStorage.getItem('altive_lang');
-      if (saved) setLang(saved);
-    } catch(e){}
-  });
-})();
-
 // ── SCROLL PROGRESS BAR ──
 (function(){
   var bar = document.getElementById('scroll-progress');
@@ -150,7 +128,8 @@ function calcROI() {
   var hrsMo      = hrsSaved * 4.33;                    // horas/mês
   var savingsMo  = hrsMo * cost;                       // R$/mês
   var savingsYr  = savingsMo * 12;                     // R$/ano
-  var paybackMo  = Math.max(1, Math.round(savingsMo > 0 ? (savingsMo * 1.5) / savingsMo : 3));
+  var investment = 10000 + (emp * 600) + (auto * 250);
+  var paybackMo  = savingsMo > 0 ? Math.min(24, Math.max(1, Math.round(investment / savingsMo))) : 24;
   var productivity = Math.round(auto * 1.4);
 
   function fmt(n) {
