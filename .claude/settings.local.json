@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(\\(Get-Item \"c:\\\\Users\\\\dalte\\\\Downloads\\\\Altive-site.zip\"\\).Length / 1KB)",
+      "Bash(python -m http.server 8765)",
+      "Bash(Start-Sleep -Seconds 2)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8765/index.html)",
+      "PowerShell(Start-Process \"http://localhost:8765/index.html#servicos\")",
+      "WebFetch(domain:stitch.withgoogle.com)",
+      "WebSearch",
+      "WebFetch(domain:developers.googleblog.com)",
+      "WebFetch(domain:blog.google)",
+      "WebFetch(domain:www.nxcode.io)",
+      "WebFetch(domain:www.codecademy.com)",
+      "WebFetch(domain:www.uxpin.com)"
+    ]
+  }
+}
