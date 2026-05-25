@@ -5,8 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="ALTIVE — Soluções digitais inteligentes. Desenvolvimento web, automação, IA e sistemas para empresas.">
   <title>ALTIVE | Desenvolvimento Web, Automação e IA para Empresas</title>
-  <link rel="canonical" href="https://altive.site/">
+  <link rel="canonical" href="https://altivetech.com.br/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://altivetech.com.br/">
+  <meta property="og:title" content="ALTIVE | Desenvolvimento Web, Automação e IA para Empresas">
+  <meta property="og:description" content="Desenvolvemos soluções digitais de alto impacto — sistemas, automações e inteligência artificial que transformam como sua empresa opera e cresce.">
+  <meta property="og:image" content="https://altivetech.com.br/assets/altive-mountain-hero.png">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ALTIVE | Desenvolvimento Web, Automação e IA para Empresas">
+  <meta name="twitter:description" content="Desenvolvemos soluções digitais de alto impacto — sistemas, automações e inteligência artificial que transformam como sua empresa opera e cresce.">
+  <meta name="twitter:image" content="https://altivetech.com.br/assets/altive-mountain-hero.png">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
@@ -40,26 +52,22 @@
 <canvas id="particles-canvas" aria-hidden="true"></canvas>
 
   <div class="bg-grid" aria-hidden="true"></div>
-  <div class="bg-mountain" aria-hidden="true"></div>
 
   <header class="topbar" id="topo">
     <a class="brand" href="#topo" aria-label="ALTIVE">
-      <img src="assets/altive-logo-wordmark-black.png" alt="ALTIVE" class="brand-logo-img">
+      <img src="assets/altive-wordmark-transparent.png" alt="ALTIVE" class="brand-logo-img">
       <span class="brand-copy"><strong>SOFTWARE BUSINESS</strong></span>
     </a>
+
 
     <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
 
     <nav class="nav-links" aria-label="Menu principal">
-      <a href="#sobre"><span>Sobre</span></a>
-      <a href="#servicos"><span>Serviços</span></a>
+      <a href="index.html"><span>Home</span></a>
       <a href="solucoes.html"><span>Soluções</span></a>
-      <a href="#exemplos"><span>Exemplos</span></a>
       <a href="planos.html"><span>Planos</span></a>
-      <a href="#processo"><span>Processo</span></a>
-      <a href="#diferenciais"><span>Diferenciais</span></a>
       <a href="https://wa.me/5541984801999?text=Ol%C3%A1%2C%20quero%20elevar%20meu%20neg%C3%B3cio%20ao%20pr%C3%B3ximo%20n%C3%ADvel." target="_blank" rel="noopener" class="nav-cta-btn"><span>Contato</span></a>
     </nav>
   </header>
@@ -77,11 +85,6 @@
 
         <p class="hero-desc reveal">Desenvolvemos soluções digitais de alto impacto — sistemas, automações e inteligência artificial que transformam como sua empresa opera e cresce.</p>
 
-        <div class="hero-code-line reveal" aria-label="Código ALTIVE">
-          <span class="code-prompt">&gt;</span>
-          <span class="code-typing">deploy.altive({ site: "online", automacao: true, ia: "ready" })</span>
-        </div>
-
         <div class="hero-actions reveal">
           <a class="btn-prime" href="#servicos">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg>
@@ -96,6 +99,10 @@
 
       <div class="hero-right reveal">
         <div class="hud-panel">
+          <div class="hud-pulse-ring hud-pulse-a"></div>
+          <div class="hud-pulse-ring hud-pulse-b"></div>
+          <div class="hud-radar"></div>
+
           <div class="hud-ring hud-ring-1"></div>
           <div class="hud-ring hud-ring-2"></div>
           <div class="hud-ring hud-ring-3"></div>
@@ -105,19 +112,19 @@
           </div>
 
           <div class="hud-node hud-node-1">
-            <div class="hud-node-val">100<sup>%</sup></div>
+            <div class="hud-node-val"><span class="hud-count" data-target="100">0</span><sup>%</sup></div>
             <div class="hud-node-label"><span>Entregas</span></div>
           </div>
           <div class="hud-node hud-node-2">
-            <div class="hud-node-val">24<sup>/7</sup></div>
+            <div class="hud-node-val"><span class="hud-count" data-target="24">0</span><sup>/7</sup></div>
             <div class="hud-node-label"><span>Suporte</span></div>
           </div>
           <div class="hud-node hud-node-3">
-            <div class="hud-node-val">5<sup>★</sup></div>
+            <div class="hud-node-val"><span class="hud-count" data-target="5">0</span><sup>★</sup></div>
             <div class="hud-node-label"><span>Avaliação</span></div>
           </div>
           <div class="hud-node hud-node-4">
-            <div class="hud-node-val">48<sup>h</sup></div>
+            <div class="hud-node-val"><span class="hud-count" data-target="48">0</span><sup>h</sup></div>
             <div class="hud-node-label"><span>1º Protótipo</span></div>
           </div>
         </div>
@@ -308,6 +315,10 @@
             </div>
           </div>
           <div class="example-copy">
+            <div class="example-tech-meta">
+              <span class="example-tech-badge">AUTOMATION_01</span>
+              <span class="example-tech-status st-ok">ST_OK</span>
+            </div>
             <span class="example-kicker">IA no WhatsApp</span>
             <h3>Atendimento que responde, qualifica e agenda.</h3>
             <p>O cliente conversa naturalmente, enquanto a IA coleta dados, tira dúvidas, registra o lead e aciona sua operação sem espera manual.</p>
@@ -332,6 +343,10 @@
             </div>
           </div>
           <div class="example-copy">
+            <div class="example-tech-meta">
+              <span class="example-tech-badge">SYSTEM_FLOW</span>
+              <span class="example-tech-status st-active">ST_ACTIVE</span>
+            </div>
             <span class="example-kicker">Automação operacional</span>
             <h3>Rotinas repetitivas viram fluxo inteligente.</h3>
             <p>Integramos ferramentas, planilhas, e-mails, ERPs e alertas para que a informação circule sozinha, com rastreio e menos erro humano.</p>
@@ -365,6 +380,10 @@
             </div>
           </div>
           <div class="example-copy">
+            <div class="example-tech-meta">
+              <span class="example-tech-badge">CUSTOM_CORE</span>
+              <span class="example-tech-status st-deployed">ST_DEPLOYED</span>
+            </div>
             <span class="example-kicker">Sistema sob medida</span>
             <h3>Arquitetura pensada para seu jeito de operar.</h3>
             <p>Transformamos regras do negócio em telas, permissões, relatórios e integrações, com estrutura preparada para crescer.</p>
@@ -399,7 +418,7 @@
         </article>
         <article class="proc-step reveal">
           <div class="proc-num-wrap"><span class="proc-num">04</span></div>
-          <h3 class="proc-title">Entrega & Escala</h3>
+          <h3 class="proc-title"><span>Entrega & Escala</span></h3>
           <p class="proc-desc">Deploy monitorado, documentação e suporte ativo para garantir evolução contínua do produto.</p>
         </article>
       </div>
@@ -512,6 +531,7 @@
           </div>
           <div class="plan-idx">PLN-01</div>
           <h3 class="plan-name">START</h3>
+          <div class="plan-tech-label">INITIAL_CORE_DEVOPS</div>
           <p class="plan-desc">Base profissional para pequenos negócios com presença digital, WhatsApp Business e estrutura inicial confiável.</p>
           <ul class="plan-features">
             <li>Landing page</li>
@@ -526,12 +546,14 @@
         </article>
 
         <article class="plan-card featured reveal">
+          <div class="plan-scan-line"></div>
           <span class="plan-badge-featured">Mais escolhido</span>
           <div class="plan-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M12 3 4 7v6c0 4.4 3.4 7.5 8 8 4.6-.5 8-3.6 8-8V7l-8-4Z"/><path d="m9 12 2 2 4-5"/></svg>
           </div>
           <div class="plan-idx">PLN-02</div>
           <h3 class="plan-name">BUSINESS</h3>
+          <div class="plan-tech-label">PRODUCTION_SCALE_UP</div>
           <p class="plan-desc">Site profissional, IA no atendimento, automações e integrações — operação mais inteligente para empresas em crescimento.</p>
           <ul class="plan-features">
             <li>Site profissional</li>
@@ -552,6 +574,7 @@
           </div>
           <div class="plan-idx">PLN-03</div>
           <h3 class="plan-name">ENTERPRISE</h3>
+          <div class="plan-tech-label">FULL_STACK_DOMINATION</div>
           <p class="plan-desc">Sistema personalizado, IA avançada, APIs, escala e suporte dedicado — solução completa sob medida.</p>
           <ul class="plan-features">
             <li>Sistema personalizado</li>
@@ -690,7 +713,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <img src="assets/altive-logo-wordmark-black.png" alt="ALTIVE" class="footer-logo-img">
+        <img src="assets/altive-wordmark-transparent.png" alt="ALTIVE" class="footer-logo-img">
         <p>Soluções digitais inteligentes para empresas que querem crescer com tecnologia confiável e execução de alto nível.</p>
         <div class="footer-socials">
           <a class="footer-social-btn" href="https://www.instagram.com/altivetech/" target="_blank" rel="noopener" aria-label="Instagram">
