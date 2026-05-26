@@ -1,13 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <defs>
-    <filter id="to-cyan">
-      <feColorMatrix type="matrix"
-        values="0 0 0 0 0
-                0.6 0.9 1 0 0
-                0.8 1 1 0 0
-                0 0 0 1 0"/>
-    </filter>
-  </defs>
-  <rect width="32" height="32" fill="#000305"/>
-  <image href="altive-logo-icon-black.png" x="1" y="1" width="30" height="30" filter="url(#to-cyan)"/>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" width="64" height="64">
+  <image width="64" height="64" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEGUlEQVR4nOWa32tcRRTHv+fMvdndpFViU1YwNopo1BepWJqSH11fhL4IIoj/i4J/iQ998cFXffEtNt0mrSVqY4WKUilCoWgSbdq9e+/MfGXu3i0a6ovZ9CaZDwz3xzJzznznzJm5wwqSp4iIUUSOInIUkaOIHEXkKCJHETmKyFFEjiJyFJGjiBxF5CgiRxE5ishRRI4icrRm++E4rtYjuaRO4wCkZvuoS4Bq1PnHQAR5pi5BEtSDK2273u3yyYyfAGDr8Efr6rzAXgXtmapcrToffjvSAvgQ5iLcou29UD17MNxzu5oCPOoCKG12E2AbQFEWz7Yw/6Hyxx1VAVwZ5rTXwWIBQA6gUZWcrr8A2vUnPRV0n9tn1ZlwFYA78Nmz1bsxYxrLahrL4b6MDp9NAXzwj6kwrHtoBZCQ44ehD99fB/10eGeS5rKTRsdLo1OJoKA/Bd+/XvnFqq4cRgFYFuF9IF8ZvHEb8HkIfSRJY9lhrLM4bb89f8quBxHStBVEAHw+D7ofB23YULdfCcjDJIArR873v4PNFkG7AZ+FkdQkaV6yaHQuvGivffl+75Uv3uvNvvtysVYw7SRJ61KZA3xmy3xgHy7CZ2v7mRyTfWiz2tAUl+HyRTFjK4BzpOto0rpikS59+FrR/ehcv/3O5+O/5g7m0wvZ5GQTKxc30iVN0PW2Ny/wX1PSLnx+HmpWgfTcfmyWZMT/DwijZEB3C+7BrJi0SzTayp0Z6MS6hzn7watFd+E55z6+3Dj9V1+Oh0qtBL1P5rNrN3435rOb6YKwWKPrvQUz8TOQb8MVczDHfoHoS49sHEAB/CBUuaV+Rz3S76HNJWFvFZIIkc692XYbJ8eZfXU7ORMqqJQjCs9Bsnt7xq7v5GK+uWveEBargBNKc07YW6GzryM5NgbIcYh4kHqQBGB1teDDG6C5D210QH9HhD3CzP6/Vt0tQMYh+jzYX4Z3EzDjp6uccKAEcGEgBfkVQJtEcrZ6bwFugu43MKzv3qlQvaepokVFy36Qnk41/BTaEhU1TUKmAT1RbZYAFmsgc+hYyAc6iqkgIxBguMnZBLkNkUnQ/QT6bDArSjMU1bAKJKQ0AGkCSAGpEhqDgAXAPsBMhJaeXgRKkKAQok1IMgtyq7SBUIa26xUA5e6N/g7g/wRZQLQF6BTEtAG29th4Dvq7gL9XiiqaAPI0RGcAmdir57JHARiSHsjNcnkSOfkYpwZffEN7/77+R5uPcspj5noQm/cELCg6VUWC1BkBdtfaPNy16Qi3sRx+Su8SZM/7gmTvvpVtDEXc7eCovymGcFT+JxgNT/osT47KsXjtKCJHETmKyFFEjiJyFJGjiBxF5CgiRxE5ishRRI4ichSRo4gcReQoIkcROYrIUUSO1u1A3fwNAZ2vlKz46aQAAAAASUVORK5CYII="/>
 </svg>
