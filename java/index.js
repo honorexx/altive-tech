@@ -431,3 +431,23 @@ calcROI();
 })();
 
 
+
+// ── HERO BUILD LOG ──
+(function () {
+  var ids = ['bl-ts-1','bl-ts-2','bl-ts-3'];
+  function fmt(d) {
+    return [d.getHours(),d.getMinutes(),d.getSeconds()]
+      .map(function(n){ return String(n).padStart(2,'0'); }).join(':');
+  }
+  var now = new Date();
+  ids.forEach(function(id, i) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    var t = new Date(now.getTime() - (2 - i) * 2000);
+    el.textContent = fmt(t);
+  });
+  setInterval(function() {
+    var el = document.getElementById('bl-ts-3');
+    if (el) el.textContent = fmt(new Date());
+  }, 1000);
+})();

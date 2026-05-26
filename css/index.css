@@ -2973,6 +2973,7 @@ body::before {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   filter: drop-shadow(0 0 28px rgba(0,180,255,0.5));
+}
 
 /* ── HUD: radar sweep ── */
 .hud-radar {
@@ -3212,3 +3213,171 @@ body {
 }
 
 #particles-canvas { opacity: 0.45; }
+
+/* scanline removed */
+
+/* ── HERO BUILD LOG ── */
+.hero-buildlog {
+  margin-top: 28px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  border: 1px solid rgba(0,180,255,0.12);
+  background: rgba(0,10,25,0.6);
+  padding: 10px 14px;
+  max-width: 420px;
+  backdrop-filter: blur(6px);
+}
+
+.bl-header {
+  font-size: 0.52rem;
+  letter-spacing: 0.18em;
+  color: rgba(0,180,255,0.5);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bl-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #00e5a0;
+  box-shadow: 0 0 6px #00e5a0;
+  animation: bl-blink 1.4s ease-in-out infinite;
+}
+
+@keyframes bl-blink {
+  0%,100% { opacity: 1; } 50% { opacity: 0.3; }
+}
+
+.bl-branch {
+  color: rgba(167,139,250,0.7);
+  margin-left: auto;
+}
+
+.bl-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,0.45);
+  padding: 2px 0;
+}
+
+.bl-ts {
+  color: rgba(0,180,255,0.4);
+  min-width: 54px;
+}
+
+.bl-ok {
+  color: #00e5a0;
+  font-size: 0.7rem;
+}
+
+.bl-running span:last-child { color: rgba(255,255,255,0.7); }
+
+.bl-spinner {
+  width: 8px; height: 8px;
+  border: 1px solid rgba(0,180,255,0.3);
+  border-top-color: var(--cyan);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── TECH STACK MARQUEE ── */
+.stack-marquee-wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid rgba(0,180,255,0.08);
+  border-bottom: 1px solid rgba(0,180,255,0.08);
+  background: rgba(0,6,18,0.6);
+  padding: 14px 0;
+  margin: 0;
+}
+
+.stack-fade-l, .stack-fade-r {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.stack-fade-l { left: 0;  background: linear-gradient(90deg,  #00040e, transparent); }
+.stack-fade-r { right: 0; background: linear-gradient(-90deg, #00040e, transparent); }
+
+.stack-marquee {
+  display: flex;
+  gap: 0;
+  animation: marquee-scroll 40s linear infinite;
+}
+
+.stack-track {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-shrink: 0;
+}
+
+.stack-track span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: rgba(0,180,255,0.45);
+  text-transform: uppercase;
+  padding: 0 28px;
+  white-space: nowrap;
+  border-right: 1px solid rgba(0,180,255,0.1);
+  transition: color 0.3s;
+}
+
+.stack-track span:hover { color: var(--cyan); }
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── SERVICE CARD LANGUAGE BADGE ── */
+.svc-lang {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  font-weight: 600;
+  color: rgba(167,139,250,0.7);
+  background: rgba(167,139,250,0.07);
+  border: 1px solid rgba(167,139,250,0.2);
+  padding: 2px 7px;
+  border-radius: 3px;
+  letter-spacing: 0.05em;
+}
+
+/* ── PROCESS STEPS: GIT COMMIT STYLE ── */
+.proc-git-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0,180,255,0.08);
+}
+
+.proc-hash {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  color: rgba(0,180,255,0.4);
+  letter-spacing: 0.08em;
+}
+
+.proc-branch {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.52rem;
+  color: rgba(167,139,250,0.6);
+  background: rgba(167,139,250,0.07);
+  border: 1px solid rgba(167,139,250,0.15);
+  padding: 1px 7px;
+  border-radius: 10px;
+}

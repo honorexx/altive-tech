@@ -12,7 +12,8 @@
       "WebFetch(domain:blog.google)",
       "WebFetch(domain:www.nxcode.io)",
       "WebFetch(domain:www.codecademy.com)",
-      "WebFetch(domain:www.uxpin.com)"
+      "WebFetch(domain:www.uxpin.com)",
+      "Bash(python3 -c ' *)"
     ]
   }
 }
