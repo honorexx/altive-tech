@@ -181,23 +181,54 @@ try {
         return 42.*dot(m*m,vec4(dot(p0,x0),dot(p1,x1),dot(p2,x2),dot(p3,x3)));
       }`;
 
-    const bU = { uTime:{value:0}, uAmp:{value:.42}, uOpacity:{value:1}, uColorA:{value:BLUE.clone()}, uColorB:{value:CYAN.clone()} };
+    /* ── Montanha: silhueta do logo via ExtrudeGeometry ── */
+    const mShape = new THREE.Shape();
+    // pico central (topo)
+    mShape.moveTo(0, 4.2);
+    // lado direito externo descendo
+    mShape.lineTo(1.3, 1.9);
+    // mini pico direito
+    mShape.lineTo(2.0, -0.1);
+    mShape.lineTo(2.5,  0.6);
+    mShape.lineTo(3.0, -0.2);
+    mShape.lineTo(4.3, -1.0);
+    // base direita
+    mShape.lineTo(3.2, -1.0);
+    // curva base (swoosh)
+    mShape.quadraticCurveTo(0, -0.2, -3.2, -1.0);
+    // base esquerda
+    mShape.lineTo(-4.3, -1.0);
+    // mini pico esquerdo
+    mShape.lineTo(-3.0, -0.2);
+    mShape.lineTo(-2.5,  0.6);
+    mShape.lineTo(-2.0, -0.1);
+    mShape.lineTo(-1.3,  1.9);
+    mShape.closePath();
+
+    // buraco interior do "A" (chevron azul)
+    const hole = new THREE.Path();
+    hole.moveTo(0, 3.4);
+    hole.lineTo( 1.0, 1.9);
+    hole.lineTo( 1.8, -0.5);
+    hole.lineTo( 0.5,  0.5);
+    hole.lineTo( 0,  0.0);
+    hole.lineTo(-0.5,  0.5);
+    hole.lineTo(-1.8, -0.5);
+    hole.lineTo(-1.0,  1.9);
+    hole.closePath();
+    mShape.holes.push(hole);
+
+    const mGeoExtrude = new THREE.ExtrudeGeometry(mShape, {
+      depth: 0.6, bevelEnabled: true,
+      bevelThickness: 0.35, bevelSize: 0.22, bevelSegments: 8
+    });
+
+    const bU = { uTime:{value:0}, uAmp:{value:.18}, uOpacity:{value:1}, uColorA:{value:BLUE.clone()}, uColorB:{value:CYAN.clone()} };
     const bVert = noise + `
       uniform float uTime,uAmp; varying vec3 vNormal,vView; varying float vNoise;
       void main(){
-        /* transforma a esfera em perfil de montanha (pico central + 2 laterais) */
-        float nx = position.x / 2.6;
-        float mh = max(
-          exp(-nx*nx*1.9)*1.95,
-          max(exp(-(nx+0.64)*(nx+0.64)*10.)*0.92,
-              exp(-(nx-0.64)*(nx-0.64)*10.)*0.92)
-        );
-        vec3 mpos = vec3(position.x*1.1,
-                         position.y>0.0 ? position.y*mh : position.y*0.26,
-                         position.z*0.6);
-        /* noise orgânico sobre a forma de montanha */
-        float n=snoise(mpos*.9+uTime*.35)+snoise(mpos*2.4-uTime*.2)*.3;
-        vNoise=n; vec3 np=mpos+normal*n*uAmp;
+        float n=snoise(position*.7+uTime*.3)+snoise(position*1.8-uTime*.18)*.25;
+        vNoise=n; vec3 np=position+normal*n*uAmp;
         vec4 mv=modelViewMatrix*vec4(np,1.);
         vNormal=normalize(normalMatrix*normal); vView=normalize(-mv.xyz);
         gl_Position=projectionMatrix*mv;
@@ -206,20 +237,16 @@ try {
       uniform vec3 uColorA,uColorB; uniform float uOpacity;
       varying vec3 vNormal,vView; varying float vNoise;
       void main(){
-        float fr=pow(1.-abs(dot(vNormal,vView)),2.2);
-        vec3 col=mix(uColorA,uColorB,vNoise*.5+.5)+fr*.9;
-        gl_FragColor=vec4(col,(0.12+fr*.85)*uOpacity);
+        float fr=pow(1.-abs(dot(vNormal,vView)),2.0);
+        vec3 col=mix(uColorA,uColorB,vNoise*.5+.5)+fr*1.1;
+        gl_FragColor=vec4(col,(0.08+fr*0.92)*uOpacity);
       }`;
 
     const blobGroup = new THREE.Group();
-    const bSeg = isMobile ? 48 : 90;
-    blobGroup.add(
-      new THREE.Mesh(new THREE.SphereGeometry(2.1, bSeg, bSeg),
-        new THREE.ShaderMaterial({ uniforms:bU, vertexShader:bVert, fragmentShader:bFrag, transparent:true, depthWrite:false, blending:THREE.AdditiveBlending })),
-      new THREE.Mesh(new THREE.SphereGeometry(2.1, 22, 22),
-        new THREE.ShaderMaterial({ uniforms:{ uTime:bU.uTime, uAmp:{value:.42}, uOpacity:{value:.13}, uColorA:{value:CYAN.clone()}, uColorB:{value:BLUE.clone()} }, vertexShader:bVert, fragmentShader:bFrag, transparent:true, depthWrite:false, wireframe:true }))
-    );
-    blobGroup.position.set(0, 0, 0);
+    blobGroup.add(new THREE.Mesh(mGeoExtrude,
+      new THREE.ShaderMaterial({ uniforms:bU, vertexShader:bVert, fragmentShader:bFrag,
+        transparent:true, depthWrite:false, blending:THREE.AdditiveBlending, side:THREE.DoubleSide })));
+    blobGroup.position.set(0, -0.5, 0);
     scene.add(blobGroup);
 
     /* ── Morphing particles ── */
