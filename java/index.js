@@ -5,21 +5,7 @@
 const reduced  = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
 const isMobile = innerWidth < 760;
 
-/* ── LOADER ── */
-(function () {
-  const loader = document.getElementById('loader');
-  if (!loader) return;
-  if (reduced) { loader.classList.add('done'); return; }
-  const bar = document.getElementById('loadbar');
-  const pct = document.getElementById('loadpct');
-  let p = 0;
-  const iv = setInterval(() => {
-    p = Math.min(100, p + Math.random() * 22);
-    if (bar) bar.style.width = p + '%';
-    if (pct) pct.textContent = Math.floor(p) + '%';
-    if (p >= 100) { clearInterval(iv); setTimeout(() => loader.classList.add('done'), 280); }
-  }, 110);
-})();
+/* loader handled by inline script in HTML */
 
 /* ── NAV SCROLL ── */
 const topbar    = document.querySelector('.topbar');

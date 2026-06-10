@@ -529,6 +529,22 @@
   </div>
 </footer>
 
+<script>
+/* loader roda imediatamente, antes do Three.js baixar */
+(function(){
+  var loader=document.getElementById('loader');
+  if(!loader)return;
+  var bar=document.getElementById('loadbar');
+  var pct=document.getElementById('loadpct');
+  var p=0;
+  var iv=setInterval(function(){
+    p=Math.min(100,p+Math.random()*22);
+    if(bar)bar.style.width=p+'%';
+    if(pct)pct.textContent=Math.floor(p)+'%';
+    if(p>=100){clearInterval(iv);setTimeout(function(){loader.classList.add('done');},280);}
+  },110);
+})();
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="java/index.js"></script>
 </body>
