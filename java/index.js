@@ -241,14 +241,47 @@ try {
 
     /* ── Morphing particles ── */
     const P = isMobile ? 800 : 1800;
-    function sphere()  { const a=new Float32Array(P*3); for(let i=0;i<P;i++){const u=Math.random()*2-1,t=Math.random()*Math.PI*2,r=5.4,s=Math.sqrt(1-u*u);a[i*3]=r*s*Math.cos(t);a[i*3+1]=r*u;a[i*3+2]=r*s*Math.sin(t)-2;} return a; }
+
+    /* montanha do logo: pico central + 2 picos laterais + base curva */
+    function mountain() {
+      const a = new Float32Array(P * 3);
+      for (let i = 0; i < P; i++) {
+        const r = Math.random();
+        let x, y, z = (Math.random() - 0.5) * 1.2 - 1.5;
+        if (r < 0.48) {
+          // pico central — triângulo grande
+          const u = Math.random(), v = Math.random() * (1 - u);
+          x = u * 0   + v * (-4.2) + (1-u-v) * 4.2;
+          y = u * 5.2 + v * (-0.8) + (1-u-v) * (-0.8);
+        } else if (r < 0.68) {
+          // pico esquerdo
+          const u = Math.random(), v = Math.random() * (1 - u);
+          x = u * (-3.0) + v * (-5.8) + (1-u-v) * (-1.4);
+          y = u *  2.0   + v * (-0.8) + (1-u-v) * (-0.8);
+        } else if (r < 0.88) {
+          // pico direito
+          const u = Math.random(), v = Math.random() * (1 - u);
+          x = u * 3.0 + v * 1.4 + (1-u-v) * 5.8;
+          y = u * 2.0 + v * (-0.8) + (1-u-v) * (-0.8);
+        } else {
+          // base curvada
+          const t = (Math.random() - 0.5) * 14;
+          x = t;
+          y = -1.1 - Math.pow(Math.abs(t) / 7, 1.8) * 0.9;
+          z = (Math.random() - 0.5) * 0.4 - 1.5;
+        }
+        a[i*3] = x; a[i*3+1] = y; a[i*3+2] = z;
+      }
+      return a;
+    }
+
     function grid()    { const a=new Float32Array(P*3),s=Math.ceil(Math.sqrt(P)); for(let i=0;i<P;i++){const x=i%s,y=Math.floor(i/s);a[i*3]=(x/s-.5)*16;a[i*3+1]=(y/s-.5)*9;a[i*3+2]=-3+Math.sin(x*.5)*Math.cos(y*.5)*.8;} return a; }
     function helix()   { const a=new Float32Array(P*3); for(let i=0;i<P;i++){const t=i/P*Math.PI*8,x=i/P*16-8,s=i%2?1:-1;a[i*3]=x;a[i*3+1]=Math.sin(t)*1.6*s;a[i*3+2]=Math.cos(t)*1.6*s-2;} return a; }
     function diamond() { const a=new Float32Array(P*3); for(let i=0;i<P;i++){let x=Math.random()*2-1,y=Math.random()*2-1,z=Math.random()*2-1;const m=Math.abs(x)+Math.abs(y)+Math.abs(z)||1,r=4.6;a[i*3]=x/m*r;a[i*3+1]=y/m*r;a[i*3+2]=z/m*r-2;} return a; }
     function knot()    { const a=new Float32Array(P*3); for(let i=0;i<P;i++){const t=i/P*Math.PI*2,p=2,q=3,r=2.6,rr=Math.cos(q*t)+2;a[i*3]=r*rr*Math.cos(p*t)*.8;a[i*3+1]=r*rr*Math.sin(p*t)*.8;a[i*3+2]=r*Math.sin(q*t)-2;} return a; }
 
-    const shapes = [sphere(), grid(), helix(), diamond(), knot()];
-    const colors = [BLUE.clone(), CYAN.clone(), new THREE.Color(0x0066ff), BLUE.clone(), CYAN.clone()];
+    const shapes = [mountain(), grid(), helix(), diamond(), knot()];
+    const colors = [CYAN.clone(), BLUE.clone(), new THREE.Color(0x0066ff), BLUE.clone(), CYAN.clone()];
 
     const mPos = new Float32Array(shapes[0]);
     const mGeo = new THREE.BufferGeometry();
