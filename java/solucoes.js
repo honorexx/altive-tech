@@ -75,71 +75,129 @@ updateProgress();
   sections.forEach(function(section) { pillObserver.observe(section); });
 })();
 
-(function initParticles() {
-  const canvas = document.getElementById("particles-canvas");
-  if (!canvas) return;
+try {
+  (function () {
+    if (typeof THREE === 'undefined') return;
+    const canvas = document.getElementById('bg3d');
+    if (!canvas) return;
 
-  const ctx = canvas.getContext("2d");
-  let width = 0;
-  let height = 0;
-  const particles = [];
-  const particleCount = 70;
+    const isMob = innerWidth < 760;
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 0.1, 120);
+    camera.position.z = 12;
 
-  function rand(min, max) {
-    return Math.random() * (max - min) + min;
-  }
+    const BLUE = new THREE.Color(0x00b4ff);
+    const CYAN = new THREE.Color(0x00d4ff);
 
-  function resize() {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-  }
+    const NODE_N = isMob ? 28 : 52;
+    const CONNECT_D = 4.4;
 
-  function resetParticle(particle) {
-    particle.x = rand(0, width);
-    particle.y = rand(0, height);
-    particle.r = rand(0.7, 2.1);
-    particle.vx = rand(-0.18, 0.18);
-    particle.vy = rand(-0.28, -0.04);
-    particle.life = rand(0.25, 1);
-    particle.decay = rand(0.0012, 0.0034);
-    particle.blue = Math.random() > 0.65;
-  }
+    /* posições dos nós */
+    const nodePos = [];
+    for (let i = 0; i < NODE_N; i++) {
+      nodePos.push(new THREE.Vector3(
+        (Math.random() - 0.5) * 18,
+        (Math.random() - 0.5) * 12,
+        (Math.random() - 0.5) * 8
+      ));
+    }
 
-  resize();
-
-  for (let i = 0; i < particleCount; i += 1) {
-    const particle = {};
-    resetParticle(particle);
-    particle.life = Math.random();
-    particles.push(particle);
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, width, height);
-
-    particles.forEach((particle) => {
-      particle.x += particle.vx;
-      particle.y += particle.vy;
-      particle.life -= particle.decay;
-
-      if (particle.life <= 0 || particle.x < -5 || particle.x > width + 5 || particle.y < -5) {
-        resetParticle(particle);
+    /* conexões entre nós próximos */
+    const conns = [];
+    for (let i = 0; i < NODE_N; i++) {
+      for (let j = i + 1; j < NODE_N; j++) {
+        if (nodePos[i].distanceTo(nodePos[j]) < CONNECT_D) conns.push([i, j]);
       }
+    }
 
-      ctx.save();
-      ctx.globalAlpha = Math.max(0, particle.life) * 0.82;
-      ctx.shadowBlur = particle.blue ? 8 : 4;
-      ctx.shadowColor = particle.blue ? "#00d4ff" : "#aaccff";
-      ctx.fillStyle = particle.blue ? "rgba(0,212,255,1)" : "rgba(180,220,255,1)";
-      ctx.beginPath();
-      ctx.arc(particle.x, particle.y, particle.r, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.restore();
+    const group = new THREE.Group();
+
+    /* esferas dos nós */
+    const nodes = nodePos.map(p => {
+      const m = new THREE.Mesh(
+        new THREE.SphereGeometry(Math.random() * 0.07 + 0.035, 8, 8),
+        new THREE.MeshBasicMaterial({ color: Math.random() > 0.5 ? BLUE : CYAN, transparent: true, opacity: 0.75, blending: THREE.AdditiveBlending, depthWrite: false })
+      );
+      m.position.copy(p);
+      m.userData.phase = Math.random() * Math.PI * 2;
+      group.add(m);
+      return m;
     });
 
-    requestAnimationFrame(draw);
-  }
+    /* linhas de conexão */
+    const lineArr = new Float32Array(conns.length * 6);
+    conns.forEach(([i, j], k) => {
+      const a = nodePos[i], b = nodePos[j];
+      lineArr[k*6]   = a.x; lineArr[k*6+1] = a.y; lineArr[k*6+2] = a.z;
+      lineArr[k*6+3] = b.x; lineArr[k*6+4] = b.y; lineArr[k*6+5] = b.z;
+    });
+    const lineGeo = new THREE.BufferGeometry();
+    lineGeo.setAttribute('position', new THREE.BufferAttribute(lineArr, 3));
+    const lineMat = new THREE.LineBasicMaterial({ color: BLUE, transparent: true, opacity: 0.13, blending: THREE.AdditiveBlending });
+    group.add(new THREE.LineSegments(lineGeo, lineMat));
 
-  window.addEventListener("resize", resize);
-  draw();
-})();
+    /* pulsos viajando pelas conexões */
+    const PULSE_N = isMob ? 6 : 14;
+    const pulses = [];
+    for (let k = 0; k < PULSE_N; k++) {
+      const p = new THREE.Mesh(
+        new THREE.SphereGeometry(0.07, 8, 8),
+        new THREE.MeshBasicMaterial({ color: CYAN, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false })
+      );
+      p.userData = { ci: Math.floor(Math.random() * conns.length), t: Math.random(), speed: 0.004 + Math.random() * 0.006 };
+      group.add(p);
+      pulses.push(p);
+    }
+
+    scene.add(group);
+
+    let mx = 0, my = 0;
+    addEventListener('mousemove', e => { mx = e.clientX / innerWidth - 0.5; my = e.clientY / innerHeight - 0.5; });
+
+    function resize() {
+      renderer.setSize(innerWidth, innerHeight);
+      camera.aspect = innerWidth / innerHeight;
+      camera.updateProjectionMatrix();
+    }
+    addEventListener('resize', resize); resize();
+
+    const clock = new THREE.Clock();
+    const tmp = new THREE.Vector3();
+
+    (function tick() {
+      const t = clock.getElapsedTime();
+
+      group.rotation.y = t * 0.034 + mx * 0.24;
+      group.rotation.x = Math.sin(t * 0.12) * 0.06 + my * 0.12;
+
+      nodes.forEach(m => {
+        m.material.opacity = 0.45 + Math.sin(t * 1.1 + m.userData.phase) * 0.35;
+      });
+
+      pulses.forEach(p => {
+        p.userData.t += p.userData.speed;
+        if (p.userData.t >= 1) {
+          p.userData.t = 0;
+          p.userData.ci = Math.floor(Math.random() * conns.length);
+        }
+        const [i, j] = conns[p.userData.ci];
+        tmp.lerpVectors(nodePos[i], nodePos[j], p.userData.t);
+        p.position.copy(tmp);
+        p.material.opacity = Math.sin(p.userData.t * Math.PI) * 0.95;
+      });
+
+      lineMat.opacity = 0.1 + Math.sin(t * 0.32) * 0.05;
+
+      camera.position.x += (mx * 1.2 - camera.position.x) * 0.03;
+      camera.position.y += (-my * 0.8 - camera.position.y) * 0.03;
+      camera.lookAt(0, 0, 0);
+
+      renderer.render(scene, camera);
+      requestAnimationFrame(tick);
+    })();
+  })();
+} catch (e) {
+  console.warn('Three.js error (solucoes):', e);
+}

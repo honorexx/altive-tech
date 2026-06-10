@@ -3,6 +3,10 @@
   background: #00040e;
 }
 
+.solutions-page #bg3d {
+  opacity: 0.55;
+}
+
 .solutions-hero {
   min-height: 88vh;
   width: min(1180px, calc(100% - 40px));
