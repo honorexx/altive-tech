@@ -246,7 +246,8 @@ try {
     blobGroup.add(new THREE.Mesh(mGeoExtrude,
       new THREE.ShaderMaterial({ uniforms:bU, vertexShader:bVert, fragmentShader:bFrag,
         transparent:true, depthWrite:false, blending:THREE.AdditiveBlending, side:THREE.DoubleSide })));
-    blobGroup.position.set(0, -0.5, 0);
+    blobGroup.position.set(isMobile ? 0 : 3.8, -0.2, 0);
+    blobGroup.scale.setScalar(0.72);
     scene.add(blobGroup);
 
     /* ── Morphing particles ── */
