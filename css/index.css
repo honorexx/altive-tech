@@ -148,9 +148,8 @@ body::after {
   display: flex; flex-direction: column; justify-content: center;
   align-items: flex-start;
   padding: 120px 5vw 80px;
-  max-width: 860px; margin: 0 auto;
 }
-.hero-left { display: flex; flex-direction: column; align-items: flex-start; width: 100%; }
+.hero-left { display: flex; flex-direction: column; align-items: flex-start; max-width: 780px; }
 
 .hero-tagline {
   font-family: 'Unbounded'; font-weight: 800;
