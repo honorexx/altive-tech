@@ -63,8 +63,8 @@ h1,h2,h3{font-family:"Unbounded","Space Grotesk",sans-serif;text-wrap:balance}h1
 @media(max-width:960px){.nav-menu{background:#fff;box-shadow:0 20px 50px rgba(23,38,58,.14)}}
 
 /* Brand signature and premium motion */
-.brand-mark{position:relative;color:#080b10;font-family:"Unbounded",sans-serif;font-size:17px;font-weight:600;letter-spacing:.21em;line-height:1}
-.brand-mark::after{content:"";position:absolute;width:5px;height:5px;right:-8px;bottom:1px;border-radius:50%;background:var(--blue)}
+.official-wordmark{position:relative;display:block;flex:0 0 auto;width:210px;height:28px;overflow:hidden}
+.official-wordmark img{position:absolute;width:245px;max-width:none;height:auto;left:50%;top:50%;transform:translate(-50%,-50%);filter:brightness(0)}
 .hero::before{animation:glow-drift 9s ease-in-out infinite alternate}
 .product-window{will-change:transform;animation:window-float 6s ease-in-out infinite}
 .floating-tag{animation:tag-float 4.8s ease-in-out infinite .6s}
@@ -92,7 +92,7 @@ h1,h2,h3{font-family:"Unbounded","Space Grotesk",sans-serif;text-wrap:balance}h1
 html[data-theme=dark]{--black:#050608;--ink:#0a0c10;--panel:#0f1218;--panel-2:#151a22;--white:#f8fafc;--copy:#b7c0cc;--muted:#7b8797;--blue:#2783ff;--blue-2:#60bdff;--line:rgba(255,255,255,.1);--shadow:0 30px 80px rgba(0,0,0,.35);color-scheme:dark}
 html[data-theme=dark] body{background:#050608}
 html[data-theme=dark] .nav-shell{background:rgba(7,9,12,.9);box-shadow:0 18px 50px rgba(0,0,0,.3)}
-html[data-theme=dark] .brand-mark{color:#f8fafc}
+html[data-theme=dark] .official-wordmark img{filter:brightness(0) invert(1)}
 html[data-theme=dark] .nav-menu a{color:#c7d0dc}
 html[data-theme=dark] .nav-menu a:hover,html[data-theme=dark] .nav-menu a[aria-current=page]{background:rgba(255,255,255,.08);color:#fff}
 html[data-theme=dark] .nav-menu .nav-contact{background:#fff;color:#080b10}
@@ -111,4 +111,4 @@ html[data-theme=dark] .footer-bottom{color:#687484}
 html[data-theme=dark] .page-index a:hover{color:#fff}
 html[data-theme=dark] .button-secondary:hover{border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.07)}
 @media(max-width:960px){html[data-theme=dark] .nav-menu{background:#090b0f;box-shadow:0 20px 50px rgba(0,0,0,.32)}}
-@media(max-width:620px){.theme-switch{margin-right:5px}.theme-switch button{width:31px;height:31px}.nav-shell{padding-right:8px}}
+@media(max-width:620px){.official-wordmark{width:140px;height:25px}.official-wordmark img{width:165px}.theme-switch{margin-right:5px}.theme-switch button{width:31px;height:31px}.nav-shell{padding-right:8px}}
