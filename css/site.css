@@ -81,3 +81,32 @@ h1,h2,h3{font-family:"Unbounded","Space Grotesk",sans-serif;text-wrap:balance}h1
 @keyframes tag-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
 @keyframes chart-breathe{0%,100%{opacity:.68;filter:saturate(.9)}50%{opacity:1;filter:saturate(1.3)}}
 @media(prefers-reduced-motion:reduce){.hero::before,.product-window,.floating-tag,.chart::after{animation:none}.service-card,.plan,.page-index a,.bullet-list li{transform:none!important}}
+
+/* Light and dark appearance */
+.theme-switch{display:flex;align-items:center;gap:3px;margin-left:auto;margin-right:8px;padding:3px;border:1px solid var(--line);border-radius:12px;background:var(--ink)}
+.theme-switch button{display:grid;place-items:center;width:34px;height:34px;border:0;border-radius:9px;background:transparent;color:var(--muted);font-size:19px;line-height:1;cursor:pointer;transition:background .22s ease,color .22s ease,transform .22s ease}
+.theme-switch button:hover{color:var(--white);transform:translateY(-1px)}
+.theme-switch button[aria-pressed=true]{background:#fff;color:#0a0d12;box-shadow:0 4px 14px rgba(23,38,58,.1)}
+.nav-menu{margin-left:0}
+html[data-theme=dark]{--black:#050608;--ink:#0a0c10;--panel:#0f1218;--panel-2:#151a22;--white:#f8fafc;--copy:#b7c0cc;--muted:#7b8797;--blue:#2783ff;--blue-2:#60bdff;--line:rgba(255,255,255,.1);--shadow:0 30px 80px rgba(0,0,0,.35);color-scheme:dark}
+html[data-theme=dark] body{background:#050608}
+html[data-theme=dark] .nav-shell{background:rgba(7,9,12,.9);box-shadow:0 18px 50px rgba(0,0,0,.3)}
+html[data-theme=dark] .brand-mark{color:#f8fafc}
+html[data-theme=dark] .nav-menu a{color:#c7d0dc}
+html[data-theme=dark] .nav-menu a:hover,html[data-theme=dark] .nav-menu a[aria-current=page]{background:rgba(255,255,255,.08);color:#fff}
+html[data-theme=dark] .nav-menu .nav-contact{background:#fff;color:#080b10}
+html[data-theme=dark] .nav-menu .nav-contact:hover{background:#dfe8f2;color:#080b10}
+html[data-theme=dark] .menu-button{color:#fff}
+html[data-theme=dark] .theme-switch button[aria-pressed=true]{background:#202734;color:#fff;box-shadow:none}
+html[data-theme=dark] .trust-item strong,html[data-theme=dark] .card-link{color:#f8fafc}
+html[data-theme=dark] .service-card,html[data-theme=dark] .process-step,html[data-theme=dark] .page-index a,html[data-theme=dark] .bullet-list li,html[data-theme=dark] .plan{background:#0a0c10;box-shadow:none}
+html[data-theme=dark] .service-card:hover{background:#0f1218;box-shadow:0 24px 60px rgba(0,0,0,.24)}
+html[data-theme=dark] .bullet-list li,html[data-theme=dark] .plan li{color:#d4dbe4}
+html[data-theme=dark] .plan.featured{border-color:rgba(96,189,255,.5);background:linear-gradient(160deg,rgba(39,131,255,.2),#0a0c10 48%);box-shadow:0 28px 70px rgba(0,0,0,.24)}
+html[data-theme=dark] .cta{border-color:rgba(96,189,255,.28);background:linear-gradient(135deg,#0d1b31,#0b0e14 65%)}
+html[data-theme=dark] .whatsapp{background:#fff;color:#07090c}
+html[data-theme=dark] .site-footer{background:#030406}
+html[data-theme=dark] .footer-bottom{color:#687484}
+html[data-theme=dark] .page-index a:hover{color:#fff}
+@media(max-width:960px){html[data-theme=dark] .nav-menu{background:#090b0f;box-shadow:0 20px 50px rgba(0,0,0,.32)}}
+@media(max-width:620px){.theme-switch{margin-right:5px}.theme-switch button{width:31px;height:31px}.nav-shell{padding-right:8px}}
