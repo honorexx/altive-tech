@@ -1,12 +1,16 @@
 # ALTIVE Tech
 
-Site institucional da ALTIVE, uma empresa de engenharia de software focada em desenvolvimento web, automação, inteligência artificial e sistemas personalizados.
+Site institucional da ALTIVE, uma parceira de tecnologia para negócios: entendemos o problema da empresa antes de propor sites, sistemas, automação, IA ou dados como solução.
 
 ## Páginas
 
-- `index.html` — posicionamento, serviços, processo e contato
+- `index.html` — posicionamento, dores comuns, método, soluções, processo e contato
 - `solucoes.html` — detalhamento das soluções
-- `planos.html` — ofertas Start, Business e Enterprise
+- `como-trabalhamos.html` — processo consultivo e formas de trabalhar juntos (sem preços/pacotes)
+- `projetos.html` — estrutura de portfólio, com placeholders "Em breve" até existirem cases reais
+- `planos.html` — redirect para `como-trabalhamos.html` (mantido por compatibilidade de SEO)
+
+> `css/index.css`, `css/planos.css`, `css/professional.css`, `css/solucoes.css`, `css/style.css` e os arquivos correspondentes em `java/` (exceto `site.js`) são resíduos de iterações visuais anteriores e não são carregados por nenhuma página atual — apenas `css/site.css` e `java/site.js` estão em uso.
 
 ## Executar localmente
 
