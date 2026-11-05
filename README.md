@@ -1,55 +1,45 @@
 # ALTIVE Tech
 
-Site institucional da ALTIVE, uma parceira de tecnologia para negócios: entendemos o problema da empresa antes de propor sites, sistemas, automação, IA ou dados como solução.
-
-## Páginas
-
-- `index.html` — posicionamento, dores comuns, método, soluções, processo e contato
-- `solucoes.html` — detalhamento das soluções
-- `como-trabalhamos.html` — processo consultivo e formas de trabalhar juntos (sem preços/pacotes)
-- `projetos.html` — estrutura de portfólio, com placeholders "Em breve" até existirem cases reais
-- `planos.html` — redirect para `como-trabalhamos.html` (mantido por compatibilidade de SEO)
-
-> `css/index.css`, `css/planos.css`, `css/professional.css`, `css/solucoes.css`, `css/style.css` e os arquivos correspondentes em `java/` (exceto `site.js`) são resíduos de iterações visuais anteriores e não são carregados por nenhuma página atual — apenas `css/site.css` e `java/site.js` estão em uso.
+Site institucional da ALTIVE em HTML, CSS e JavaScript, sem dependências de build.
 
 ## Executar localmente
 
-O projeto é estático e não exige instalação de dependências. Inicie um servidor local na raiz do projeto:
-
-```bash
-python3 -m http.server 8080
+```sh
+python3 -m http.server 8767
 ```
 
-Depois acesse `http://localhost:8080`.
+Acesse http://localhost:8767.
 
-## Estrutura
+## Páginas
 
-```text
-assets/   identidade visual e imagens
-css/      estilos globais e específicos
-java/     interações e animações
-*.html    páginas públicas
-```
+- Início: apresentação, editor e dashboard demonstrativos, animações por solução e planos.
+- Soluções: seis categorias com cenas próprias, escopo e contato.
+- Planos: Start, Business e Enterprise, com benefícios e FAQ.
+- Como trabalhamos: processo, modelos de parceria e FAQ.
+- Projetos: espaço para cases reais, identificado como em construção.
+- `en/`: as cinco páginas em inglês.
 
-## Fluxo de contribuição
+## Interface
 
-1. Crie uma branch a partir de `main`: `feat/nome-da-melhoria` ou `fix/nome-do-ajuste`.
-2. Faça commits pequenos e objetivos seguindo Conventional Commits.
-3. Abra um pull request com descrição, evidências visuais e passos de validação.
-4. Faça o merge somente após revisão e validação.
+- Identidade ALTIVE em azul, preto e branco, com ambiente visual e símbolo iluminado.
+- Temas claro e escuro com preferência salva localmente; troca de idioma por página.
+- Cenas ilustrativas para web, sistemas, automação, IA, dados e soluções sob medida.
+- Robô ao computador, digitação demonstrativa, gráficos progressivos e contadores.
+- Repetição individual das cenas e pausa geral; respeito a movimento reduzido.
+- Cenas suspensas fora da tela, menu responsivo e navegação por teclado.
 
-### Padrão de commits
+Os dados dos painéis e processos animados são ilustrativos. A digitação não executa IA. O ambiente de fundo é uma imagem conceitual gerada a partir da direção visual aprovada, não uma fotografia comprovada do escritório da empresa. Textos, botões e navegação são HTML real. Os contatos e os planos foram preservados a partir do projeto e de seu histórico.
 
-- `feat:` nova funcionalidade ou melhoria visível
-- `fix:` correção de comportamento
-- `style:` ajuste visual sem mudança funcional
-- `docs:` documentação
-- `chore:` manutenção do projeto
+## Estrutura ativa
+
+`css/site.css` e `java/site.js` são os arquivos ativos compartilhados por todas as páginas. Arquivos antigos de estilos e scripts permanecem no repositório por compatibilidade histórica e não são carregados pelas páginas atuais.
+
+## Verificações
+
+Verificados arquivos e âncoras das dez páginas, sintaxe JavaScript, navegação móvel, troca de idioma, persistência do tema, FAQ, digitação, indicadores, pausa e repetição das cenas. Nenhuma mensagem externa é enviada automaticamente.
 
 ## Contato
 
 - [Site](https://altivetech.com.br/)
-- [Instagram](https://www.instagram.com/altivetech/)
 - [WhatsApp](https://wa.me/5541984801999)
-
-© 2026 ALTIVE. Todos os direitos reservados.
+- [Instagram](https://www.instagram.com/altivetech/)
