@@ -1,7 +1,8 @@
 // Diagnóstico gratuito ALTIVE: perguntas em etapas, resultado na tela e envio das respostas.
 (() => {
-  // Endereço do Google Apps Script que grava as respostas na planilha e avisa por e-mail.
-  // Vazio = o diagnóstico funciona, mas as respostas não são gravadas.
+  // Cada diagnóstico concluído chega por e-mail em AVISAR (via FormSubmit; o primeiro envio pede
+  // uma confirmação única no e-mail). ENDPOINT opcional: Apps Script que também grava numa planilha.
+  const AVISAR = 'altivtech@gmail.com';
   const ENDPOINT = '';
   const WHATSAPP = '5541984801999';
 
@@ -14,6 +15,7 @@
   let atual = 0;
 
   const marcados = (nome) => [...form.querySelectorAll(`[name="${nome}"]:checked`)].map((i) => i.value);
+  const rotulos = (nome) => [...form.querySelectorAll(`[name="${nome}"]:checked`)].map((i) => (i.nextElementSibling ? i.nextElementSibling.textContent.trim() : i.value)).join('; ');
   const valor = (nome) => (form.elements[nome] ? String(form.elements[nome].value || '').trim() : '');
 
   function mostrar(i) {
@@ -43,8 +45,8 @@
     const e = etapas[i];
     if (e.classList.contains('dg-contato')) {
       if (!valor('nome') || !valor('empresa')) return 'Preencha seu nome e o nome da empresa.';
-      if (valor('whatsapp').replace(/\D/g, '').length < 10) return 'Informe um WhatsApp com DDD.';
-      if (valor('email') && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(valor('email'))) return 'Esse e-mail não parece válido.';
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(valor('email'))) return 'Informe um e-mail válido.';
+      if (valor('whatsapp').replace(/\D/g, '').length < 10) return 'Informe um telefone com DDD.';
       if (!form.elements.aceite.checked) return 'Marque a autorização para continuarmos.';
       return '';
     }
@@ -121,8 +123,19 @@
       enviadoEm: new Date().toISOString(), nome: valor('nome'), empresa: valor('empresa'), whatsapp: valor('whatsapp'), email: valor('email'),
       desafio: valor('desafio'), areas: r.areas.join(', '), situacoes: r.s.join(', '), ferramentas: r.f.join(', '), ia: r.ia,
       solucao: r.sol.join(', '), tamanho: r.tam, nota: r.nota, fase: r.fase[0], recomendacoes: r.recs.map((k) => RECS[k][0]).join(' | '), plano: r.plano[0],
-      pagina: location.href,
+      pagina: location.href, cargo: valor('cargo'), cidade: valor('cidade'),
     };
+    const zap = valor('whatsapp').replace(/\D/g, '');
+    const email = {
+      _subject: `Novo diagnóstico no site: ${valor('empresa')} (${r.fase[0]})`, _template: 'table', _captcha: 'false',
+      Nome: valor('nome'), Cargo: valor('cargo') || '-', Empresa: valor('empresa'), Cidade: valor('cidade') || '-',
+      email: valor('email'), Telefone: valor('whatsapp'), 'Abrir WhatsApp': `https://wa.me/55${zap.replace(/^55/, '')}`,
+      'Tamanho da empresa': rotulos('tamanho'), 'Áreas que quer melhorar': rotulos('areas'), 'Situações que acontecem': rotulos('situacoes'),
+      'Ferramentas que usa': rotulos('ferramentas'), 'Uso de IA hoje': rotulos('ia'), 'Tipo de solução que interessa': rotulos('solucao'),
+      'Maior desafio': valor('desafio') || '-', Nota: `${r.nota}/100 (${r.fase[0]})`, 'Melhorias indicadas': r.recs.map((k) => RECS[k][0]).join('; '),
+      'Plano sugerido': r.plano[0], Enviado: new Date().toLocaleString('pt-BR'),
+    };
+    fetch(`https://formsubmit.co/ajax/${AVISAR}`, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(email) }).catch(() => {});
     if (ENDPOINT) {
       fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(dados) }).catch(() => {});
     }
@@ -136,7 +149,7 @@
       <ol class="dg-recs">${r.recs.map((k) => `<li><h3>${esc(RECS[k][0])}</h3><p>${esc(RECS[k][1])}</p></li>`).join('')}</ol>
       <div class="dg-plano"><p>Ponto de partida sugerido: <b>plano ${r.plano[0]}</b>, ${esc(r.plano[1])}.</p>
         <a class="button button-primary" href="https://wa.me/${WHATSAPP}?text=${encodeURIComponent(texto)}" target="_blank" rel="noopener">Conversar sobre o diagnóstico <i class="arr" aria-hidden="true"></i></a></div>
-      <p class="dg-obs">Este é um diagnóstico automático, feito a partir das suas respostas. ${ENDPOINT ? 'Recebemos suas respostas e' : 'Se quiser,'} a ALTIVE pode preparar uma análise mais completa, sem compromisso.</p>`;
+      <p class="dg-obs">Este é um diagnóstico automático, feito a partir das suas respostas. Recebemos suas respostas e a ALTIVE pode preparar uma análise mais completa, sem compromisso.</p>`;
     form.hidden = true; passo.hidden = true; barra.style.width = '100%';
     resultado.hidden = false; resultado.focus();
     window.scrollTo({ top: resultado.getBoundingClientRect().top + scrollY - 140, behavior: 'smooth' });

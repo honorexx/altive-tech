@@ -51,13 +51,15 @@
       <label><input type="radio" name="tamanho" value="51-200"><span>51 a 200 pessoas</span></label>
       <label><input type="radio" name="tamanho" value="200+"><span>Mais de 200 pessoas</span></label>
     </div></fieldset>
-    <fieldset class="dg-etapa dg-contato"><legend>Para onde mandamos o diagnóstico?</legend><p class="dg-ajuda">Seu diagnóstico aparece na tela logo em seguida.</p>
+    <fieldset class="dg-etapa dg-contato"><legend>Para quem é o diagnóstico?</legend><p class="dg-ajuda">Seu diagnóstico aparece na tela logo em seguida, e a ALTIVE recebe uma cópia para preparar uma análise mais completa.</p>
       <label class="dg-campo dg-largo"><span>Qual é hoje o maior desafio da empresa? <small>(opcional)</small></span><textarea name="desafio" rows="3" placeholder="Ex.: perdemos pedidos no WhatsApp, os relatórios demoram, o time digita tudo duas vezes…"></textarea></label>
       <label class="dg-campo">Seu nome<input name="nome" autocomplete="name" required></label>
+      <label class="dg-campo"><span>Cargo <small>(opcional)</small></span><input name="cargo" autocomplete="organization-title" placeholder="Ex.: sócio, gerente comercial"></label>
       <label class="dg-campo">Empresa<input name="empresa" autocomplete="organization" required></label>
-      <label class="dg-campo">WhatsApp<input name="whatsapp" type="tel" autocomplete="tel" placeholder="(41) 99999-9999" required></label>
-      <label class="dg-campo"><span>E-mail <small>(opcional)</small></span><input name="email" type="email" autocomplete="email"></label>
-      <label class="dg-aceite dg-largo"><input type="checkbox" name="aceite" required> Autorizo a ALTIVE a usar estas respostas para preparar o diagnóstico e entrar em contato. Não compartilhamos seus dados.</label>
+      <label class="dg-campo"><span>Cidade <small>(opcional)</small></span><input name="cidade" autocomplete="address-level2"></label>
+      <label class="dg-campo">E-mail<input name="email" type="email" autocomplete="email" required></label>
+      <label class="dg-campo">Telefone ou WhatsApp<input name="whatsapp" type="tel" autocomplete="tel" placeholder="(41) 99999-9999" required></label>
+      <label class="dg-aceite dg-largo"><input type="checkbox" name="aceite" required> Autorizo a ALTIVE a usar estas respostas para preparar o diagnóstico e entrar em contato. Usamos seus dados só para isso.</label>
     </fieldset>
     <p class="dg-erro" id="dg-erro" role="alert"></p>
     <div class="dg-botoes"><button type="button" class="button" id="dg-voltar">← Voltar</button><button type="button" class="button button-primary" id="dg-avancar">Avançar →</button></div>
