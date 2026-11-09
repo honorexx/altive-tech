@@ -135,7 +135,7 @@
       <p class="eyebrow">AS 3 MELHORIAS MAIS INDICADAS</p>
       <ol class="dg-recs">${r.recs.map((k) => `<li><h3>${esc(RECS[k][0])}</h3><p>${esc(RECS[k][1])}</p></li>`).join('')}</ol>
       <div class="dg-plano"><p>Ponto de partida sugerido: <b>plano ${r.plano[0]}</b>, ${esc(r.plano[1])}.</p>
-        <a class="button button-primary" href="https://wa.me/${WHATSAPP}?text=${encodeURIComponent(texto)}" target="_blank" rel="noopener">Conversar sobre o diagnóstico ↗</a></div>
+        <a class="button button-primary" href="https://wa.me/${WHATSAPP}?text=${encodeURIComponent(texto)}" target="_blank" rel="noopener">Conversar sobre o diagnóstico <i class="arr" aria-hidden="true"></i></a></div>
       <p class="dg-obs">Este é um diagnóstico automático, feito a partir das suas respostas. ${ENDPOINT ? 'Recebemos suas respostas e' : 'Se quiser,'} a ALTIVE pode preparar uma análise mais completa, sem compromisso.</p>`;
     form.hidden = true; passo.hidden = true; barra.style.width = '100%';
     resultado.hidden = false; resultado.focus();
